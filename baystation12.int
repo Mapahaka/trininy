@@ -1,0 +1,11 @@
+// BEGIN_INTERNALS
+/*
+LAST_COMPILE_TIME: 1457811535
+DIR: code code\__HELPERS code\controllers code\datums code\datums\diseases code\datums\diseases\advance code\datums\diseases\advance\symptoms code\datums\wires code\defines code\defines\obj code\game code\game\gamemodes code\game\gamemodes\cult maps 
+AUTO_FILE_DIR: OFF
+MAP_ICON_TYPE: 0
+LAST_COMPILE_VERSION: 509.1318
+WINDOW: baystation12.dme;code\__HELPERS\unsorted.dm;code\controllers\shuttle_controller.dm;code\datums\supplypacks.dm;code\datums\diseases\appendicitis.dm;code\datums\diseases\pregnancy.dm;code\datums\diseases\advance\symptoms\vomit.dm;maps\pol_t_d.dmm
+FILE: maps\pol_t_d.dmm
+*/
+// END_INTERNALS
