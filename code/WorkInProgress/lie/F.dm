@@ -570,3 +570,9 @@ mob/living/carbon/human/proc/check_FOV()
 				IMAGE.override = TRUE
 				IMAGE.alpha = 1
 				usr << IMAGE
+
+			else
+				IMAGE=image(M,M,M.icon_state,dir = M.dir)
+				IMAGE.override = TRUE
+				IMAGE.alpha = 255
+				usr << IMAGE
