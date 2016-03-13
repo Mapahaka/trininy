@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
 LAST_COMPILE_TIME: 1457889873
-DIR: code code\__HELPERS code\controllers code\datums code\datums\diseases code\datums\diseases\advance code\datums\diseases\advance\symptoms code\datums\wires code\defines code\defines\obj code\game code\game\gamemodes code\game\gamemodes\cult code\modules code\WorkInProgress code\WorkInProgress\lie maps 
+DIR: code code\__HELPERS code\controllers code\datums code\datums\diseases code\datums\diseases\advance code\datums\diseases\advance\symptoms code\datums\wires code\defines code\defines\obj code\game code\game\gamemodes code\game\gamemodes\cult code\game\gamemodes\events code\game\machinery code\game\machinery\computer code\game\machinery\computer2 code\game\machinery\telecomms code\game\objects code\game\objects\items code\game\objects\items\devices code\game\objects\items\devices\PDA code\modules code\modules\admin code\modules\admin\verbs code\modules\mob code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\human code\modules\paperwork code\modules\research code\modules\scripting code\modules\scripting\Implementations code\WorkInProgress code\WorkInProgress\Cael_Aislinn code\WorkInProgress\Cael_Aislinn\Jungle code\ZAS maps 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 509.1319
-WINDOW: baystation12.dme;code\__HELPERS\unsorted.dm;code\controllers\shuttle_controller.dm;code\datums\supplypacks.dm;code\datums\diseases\appendicitis.dm;code\datums\diseases\pregnancy.dm;code\datums\diseases\advance\symptoms\vomit.dm;maps\pol_t_d.dmm;code\WorkInProgress\lie\F.dm
-FILE: code\WorkInProgress\lie\F.dm
+WINDOW: maps\pol_t_d.dmm;code\__HELPERS\text.dm;code\__HELPERS\unsorted.dm;code\datums\spell.dm;code\defines\obj.dm;code\game\supplyshuttle.dm;code\game\gamemodes\events\space_ninja.dm;code\game\machinery\computer\arcade.dm;code\game\machinery\computer\card.dm;code\game\machinery\computer2\arcade.dm;code\game\machinery\telecomms\traffic_control.dm;code\game\objects\items\blueprints.dm;code\game\objects\items\devices\uplinks.dm;code\game\objects\items\devices\PDA\PDA.dm;code\modules\admin\create_mob.dm;code\modules\admin\create_object.dm;code\modules\admin\create_turf.dm;code\modules\admin\player_panel.dm;code\modules\admin\topic.dm;code\modules\admin\verbs\randomverbs.dm;code\modules\mob\mob.dm;code\modules\mob\living\carbon\human\whisper.dm;code\modules\paperwork\paper.dm;code\modules\paperwork\photocopier.dm;code\modules\research\message_server.dm;code\modules\scripting\IDE.dm;code\modules\scripting\Implementations\_Logic.dm;code\modules\scripting\Implementations\Telecomms.dm;code\WorkInProgress\Cael_Aislinn\Jungle\jungle.dm;code\ZAS\Variable Settings.dm
+FILE: code\__HELPERS\text.dm
 */
 // END_INTERNALS

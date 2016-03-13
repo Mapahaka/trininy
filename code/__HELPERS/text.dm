@@ -15,8 +15,8 @@
 
 // Run all strings to be used in an SQL query through this proc first to properly escape out injection attempts.
 /proc/sanitizeSQL(var/t as text)
-	var/sanitized_text = replacetext(t, "'", "\\'")
-	sanitized_text = replacetext(sanitized_text, "\"", "\\\"")
+	var/sanitized_text = replace_text(t, "'", "\\'")
+	sanitized_text = replace_text(sanitized_text, "\"", "\\\"")
 	return sanitized_text
 
 /*
@@ -216,7 +216,7 @@ proc/checkhtml(var/t)
  * Text modification
  */
 
-/proc/replacetext(text, find, replacement)
+/proc/replace_text(text, find, replacement)
 	var/find_len = length(find)
 	if(find_len < 1)	return text
 	. = ""
@@ -230,7 +230,7 @@ proc/checkhtml(var/t)
 			continue
 		return .
 
-/proc/replacetextEx(text, find, replacement)
+/proc/replace_textEx(text, find, replacement)
 	var/find_len = length(find)
 	if(find_len < 1)	return text
 	. = ""

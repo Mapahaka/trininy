@@ -164,8 +164,8 @@
 
 
 		dat += "</table>"
-		dat = replacetext(dat, "\n", "") // so it can be placed on paper correctly
-		dat = replacetext(dat, "\t", "")
+		dat = replace_text(dat, "\n", "") // so it can be placed on paper correctly
+		dat = replace_text(dat, "\t", "")
 		return dat
 
 /obj/effect/laser
