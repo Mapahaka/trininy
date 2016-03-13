@@ -166,8 +166,8 @@ client/verb/tcsrevert()
 				var/obj/machinery/telecomms/server/Server = Machine.SelectedServer
 
 				// Replace quotation marks with quotation macros for proper winset() compatibility
-				var/showcode = replacetext(Server.rawcode, "\\\"", "\\\\\"")
-				showcode = replacetext(showcode, "\"", "\\\"")
+				var/showcode = replace_text(Server.rawcode, "\\\"", "\\\\\"")
+				showcode = replace_text(showcode, "\"", "\\\"")
 
 				winset(mob, "tcscode", "text=\"[showcode]\"")
 
