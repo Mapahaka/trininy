@@ -373,206 +373,207 @@ mob/living/carbon/human/Move()
 	check_FOV()
 
 mob/living/carbon/human/proc/check_FOV()
-	for(var/mob/living/M in view(usr))
-		if(dir == 1)
-			if(M.y == y - 1 && (M.x < x - 1 || M.x < x + 1))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+	for(var/atom/movable/M in view(usr))
+		if(!istype(M, /turf))
+			if(dir == 1)
+				if(M.y == y - 1 && (M.x < x - 1 || M.x < x + 1))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y - 2 && (M.x < x - 2 || M.x < x + 2))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y - 2 && (M.x < x - 2 || M.x < x + 2))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y - 3 && (M.x < x - 3 || M.x < x + 3))
+				else if(M.y == y - 3 && (M.x < x - 3 || M.x < x + 3))
 
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y - 4 && (M.x < x - 4 || M.x < x + 4))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y - 4 && (M.x < x - 4 || M.x < x + 4))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y - 5 && (M.x < x - 5 || M.x < x + 5))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y - 5 && (M.x < x - 5 || M.x < x + 5))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y - 6 && (M.x < x - 6 || M.x < x + 6))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y - 6 && (M.x < x - 6 || M.x < x + 6))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
 
-			else if(M.y == y - 7 && (M.x < x - 7 || M.x < x + 7))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y - 7 && (M.x < x - 7 || M.x < x + 7))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else
-				IMAGE=image(M,M,M.icon_state,dir = M.dir)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 255
-				usr << IMAGE
+				else
+					IMAGE=image(M,M,M.icon_state,dir = M.dir)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 255
+					usr << IMAGE
 
-		if(dir == 2)
-			if(M.y == y + 1 && (M.x < x - 1 || M.x < x + 1))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = FALSE
-				IMAGE.alpha = 1
-				usr << IMAGE
+			if(dir == 2)
+				if(M.y == y + 1 && (M.x < x - 1 || M.x < x + 1))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = FALSE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y + 2 && (M.x < x - 2 || M.x < x + 2))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y + 2 && (M.x < x - 2 || M.x < x + 2))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y + 3 && (M.x < x - 3 || M.x < x + 3))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y + 3 && (M.x < x - 3 || M.x < x + 3))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y + 4 && (M.x < x - 4 || M.x < x + 4))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				usr << IMAGE
+				else if(M.y == y + 4 && (M.x < x - 4 || M.x < x + 4))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					usr << IMAGE
 
-			else if(M.y == y + 5 && (M.x < x - 5 || M.x < x + 5))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y + 5 && (M.x < x - 5 || M.x < x + 5))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y + 6 && (M.x < x - 6 || M.x < x + 6))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y + 6 && (M.x < x - 6 || M.x < x + 6))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.y == y + 7 && (M.x < x - 7 || M.x < x + 7))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.y == y + 7 && (M.x < x - 7 || M.x < x + 7))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else
-				IMAGE=image(M,M,M.icon_state,dir = M.dir)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 255
-				usr << IMAGE
+				else
+					IMAGE=image(M,M,M.icon_state,dir = M.dir)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 255
+					usr << IMAGE
 
-		if(dir == 8)
-			if(M.x == x + 1 && (M.y < y - 1 || M.y < y + 1))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+			if(dir == 8)
+				if(M.x == x + 1 && (M.y < y - 1 || M.y < y + 1))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x + 2 && (M.y < y - 2 || M.y < y + 2))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.x == x + 2 && (M.y < y - 2 || M.y < y + 2))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x + 3 && (M.y < y - 3 || M.y < y + 3))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.x == x + 3 && (M.y < y - 3 || M.y < y + 3))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x + 4 && (M.y < y - 4 || M.y < y + 4))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.x == x + 4 && (M.y < y - 4 || M.y < y + 4))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x + 5 && (M.y < y - 5 || M.y < y + 5))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.x == x + 5 && (M.y < y - 5 || M.y < y + 5))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x + 6 && (M.y < y - 6 || M.y < y + 6))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.x == x + 6 && (M.y < y - 6 || M.y < y + 6))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x + 7 && (M.y < y - 7 || M.y < y + 7))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+				else if(M.x == x + 7 && (M.y < y - 7 || M.y < y + 7))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else
-				IMAGE=image(M,M,M.icon_state,dir = M.dir)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 255
-				usr << IMAGE
+				else
+					IMAGE=image(M,M,M.icon_state,dir = M.dir)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 255
+					usr << IMAGE
 
-		if(dir == 4)
-			if(M.x == x - 1 && (M.y < y - 1 || M.y < y + 1))
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+			if(dir == 4)
+				if(M.x == x - 1 && (M.y < y - 1 || M.y < y + 1))
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x - 2 && (M.y < y - 2 || M.y < y + 2))
+				else if(M.x == x - 2 && (M.y < y - 2 || M.y < y + 2))
 
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x - 3 && (M.y < y - 3 || M.y < y + 3))
+				else if(M.x == x - 3 && (M.y < y - 3 || M.y < y + 3))
 
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x - 4 && (M.y < y - 4 || M.y < y + 4))
+				else if(M.x == x - 4 && (M.y < y - 4 || M.y < y + 4))
 
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x - 5 && (M.y < y - 5 || M.y < y + 5))
+				else if(M.x == x - 5 && (M.y < y - 5 || M.y < y + 5))
 
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x - 6 && (M.y < y - 6 || M.y < y + 6))
+				else if(M.x == x - 6 && (M.y < y - 6 || M.y < y + 6))
 
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else if(M.x == x - 7 && (M.y < y - 7 || M.y < y + 7))
+				else if(M.x == x - 7 && (M.y < y - 7 || M.y < y + 7))
 
-				IMAGE=image('icons/nothing.dmi',M)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 1
-				usr << IMAGE
+					IMAGE=image('icons/nothing.dmi',M)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 1
+					usr << IMAGE
 
-			else
-				IMAGE=image(M,M,M.icon_state,dir = M.dir)
-				IMAGE.override = TRUE
-				IMAGE.alpha = 255
-				usr << IMAGE
+				else
+					IMAGE=image(M,M,M.icon_state,dir = M.dir)
+					IMAGE.override = TRUE
+					IMAGE.alpha = 255
+					usr << IMAGE
