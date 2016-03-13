@@ -159,40 +159,40 @@
 /obj/item/weapon/paper/proc/parsepencode(var/t, var/obj/item/weapon/pen/P, mob/user as mob, var/iscrayon = 0)
 //	t = copytext(sanitize(t),1,MAX_MESSAGE_LEN)
 
-	t = replace_text(t, "\[center\]", "<center>")
-	t = replace_text(t, "\[/center\]", "</center>")
-	t = replace_text(t, "\[br\]", "<BR>")
-	t = replace_text(t, "\[b\]", "<B>")
-	t = replace_text(t, "\[/b\]", "</B>")
-	t = replace_text(t, "\[i\]", "<I>")
-	t = replace_text(t, "\[/i\]", "</I>")
-	t = replace_text(t, "\[u\]", "<U>")
-	t = replace_text(t, "\[/u\]", "</U>")
-	t = replace_text(t, "\[large\]", "<font size=\"4\">")
-	t = replace_text(t, "\[/large\]", "</font>")
-	t = replace_text(t, "\[sign\]", "<font face=\"[signfont]\"><i>[user.real_name]</i></font>")
-	t = replace_text(t, "\[field\]", "<span class=\"paper_field\"></span>")
+	t = replacetext(t, "\[center\]", "<center>")
+	t = replacetext(t, "\[/center\]", "</center>")
+	t = replacetext(t, "\[br\]", "<BR>")
+	t = replacetext(t, "\[b\]", "<B>")
+	t = replacetext(t, "\[/b\]", "</B>")
+	t = replacetext(t, "\[i\]", "<I>")
+	t = replacetext(t, "\[/i\]", "</I>")
+	t = replacetext(t, "\[u\]", "<U>")
+	t = replacetext(t, "\[/u\]", "</U>")
+	t = replacetext(t, "\[large\]", "<font size=\"4\">")
+	t = replacetext(t, "\[/large\]", "</font>")
+	t = replacetext(t, "\[sign\]", "<font face=\"[signfont]\"><i>[user.real_name]</i></font>")
+	t = replacetext(t, "\[field\]", "<span class=\"paper_field\"></span>")
 
 	if(!iscrayon)
-		t = replace_text(t, "\[*\]", "<li>")
-		t = replace_text(t, "\[hr\]", "<HR>")
-		t = replace_text(t, "\[small\]", "<font size = \"1\">")
-		t = replace_text(t, "\[/small\]", "</font>")
-		t = replace_text(t, "\[list\]", "<ul>")
-		t = replace_text(t, "\[/list\]", "</ul>")
+		t = replacetext(t, "\[*\]", "<li>")
+		t = replacetext(t, "\[hr\]", "<HR>")
+		t = replacetext(t, "\[small\]", "<font size = \"1\">")
+		t = replacetext(t, "\[/small\]", "</font>")
+		t = replacetext(t, "\[list\]", "<ul>")
+		t = replacetext(t, "\[/list\]", "</ul>")
 
 		t = "<font face=\"[deffont]\" color=[P.colour]>[t]</font>"
 	else // If it is a crayon, and he still tries to use these, make them empty!
-		t = replace_text(t, "\[*\]", "")
-		t = replace_text(t, "\[hr\]", "")
-		t = replace_text(t, "\[small\]", "")
-		t = replace_text(t, "\[/small\]", "")
-		t = replace_text(t, "\[list\]", "")
-		t = replace_text(t, "\[/list\]", "")
+		t = replacetext(t, "\[*\]", "")
+		t = replacetext(t, "\[hr\]", "")
+		t = replacetext(t, "\[small\]", "")
+		t = replacetext(t, "\[/small\]", "")
+		t = replacetext(t, "\[list\]", "")
+		t = replacetext(t, "\[/list\]", "")
 
 		t = "<font face=\"[crayonfont]\" color=[P.colour]><b>[t]</b></font>"
 
-//	t = replace_text(t, "#", "") // Junk converted to nothing!
+//	t = replacetext(t, "#", "") // Junk converted to nothing!
 
 //Count the fields
 	var/laststart = 1
@@ -257,7 +257,7 @@
 				message_admins("PAPER: [usr] ([usr.ckey]) tried to use forbidden word in [src]: [bad].")
 				return
 
-		t = replace_text(t, "\n", "<BR>")
+		t = replacetext(t, "\n", "<BR>")
 		t = parsepencode(t, i, usr, iscrayon) // Encode everything from pencode to html
 
 		if(id!="end")

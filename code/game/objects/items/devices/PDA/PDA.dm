@@ -622,7 +622,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if (in_range(src, U) && loc == U)
 					n = copytext(adminscrub(n), 1, MAX_MESSAGE_LEN)
 					if (mode == 1)
-						note = replace_text(n, "\n", "<BR>")
+						note = replacetext(n, "\n", "<BR>")
 						notehtml = n
 				else
 					U << browse(null, "window=pda")

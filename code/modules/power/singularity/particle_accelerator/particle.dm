@@ -4,7 +4,7 @@
 	name = "Accelerated Particles"
 	desc = "Small things moving very fast."
 	icon = 'icons/obj/projectiles.dmi'
-	icon_state = "energy"//Need a new icon for this
+	icon_state = "ice_2"//Need a new icon for this
 	anchored = 1
 	density = 1
 	var/movement_range = 5
