@@ -5,7 +5,7 @@
 	src.canmove = 0
 
 	if(src.blind)
-		src.blind.layer = 0
+		src.blind.alpha = 1
 	src.sight |= SEE_TURFS
 	src.sight |= SEE_MOBS
 	src.sight |= SEE_OBJS

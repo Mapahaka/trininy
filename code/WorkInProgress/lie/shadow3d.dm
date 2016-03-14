@@ -48,3 +48,17 @@ shadow
 
 /obj/structure/flora/tree/New()
 	GenerateShadow(src, EAST)
+
+/mob/living/proc/check_my_shadow()
+	var/turf/T = src.loc
+	if(istype(T, /turf/simulated/floor/plating/airless/asteroid))
+		if(shadows.len == 0)
+			GenerateShadow(src, EAST)
+		else
+			return
+	else
+		if(shadows.len != 0)
+			underlays -= shadows[1]
+			shadows.Cut()
+		else
+			return

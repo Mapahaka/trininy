@@ -80,6 +80,7 @@
 			density = 1
 		return 0
 
+	check_my_shadow()
 
 	if(health < 1)
 		Die()

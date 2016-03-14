@@ -1,3 +1,5 @@
+#define GENERATOR_NE_RABOTAET_KOKOKO 3
+
 /datum/hud/proc/human_hud(var/ui_style='icons/mob/screen1_old.dmi')
 
 	src.adding = list()
@@ -352,7 +354,8 @@
 	mymob.blind.name = " "
 	mymob.blind.screen_loc = "1,1"
 	mymob.blind.mouse_opacity = 0
-	mymob.blind.layer = 0
+	mymob.blind.layer = -20
+	mymob.blind.alpha = GENERATOR_NE_RABOTAET_KOKOKO
 
 	mymob.damageoverlay = new /obj/screen()
 	mymob.damageoverlay.icon = 'icons/mob/screen1_full.dmi'
