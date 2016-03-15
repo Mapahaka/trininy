@@ -85,6 +85,16 @@
 //			user << "\red This piece of cable is tied to a power switch. Flip the switch to remove it."
 //			return
 
+///// Z-Level Stuff
+		if(src.d1 == 12 || src.d2 == 12)
+			user << "<span class='warning'>You must cut this cable from above.</span>"
+			return
+///// Z-Level Stuff
+
+//		if(power_switch)
+//			user << "\red This piece of cable is tied to a power switch. Flip the switch to remove it."
+//			return
+
 		if (shock(user, 50))
 			return
 
@@ -94,11 +104,22 @@
 			new/obj/item/weapon/cable_coil(T, 1, cable_color)
 
 		for(var/mob/O in viewers(src, null))
-			O.show_message("\red [user] cuts the cable.", 1)
+			O.show_message("<span class='warning'>[user] cuts the cable.</span>", 1)
+
+///// Z-Level Stuff
+		if(src.d1 == 11 || src.d2 == 11)
+			var/turf/controllerlocation = locate(1, 1, z)
+			for(var/obj/effect/landmark/zcontroller/controller in controllerlocation)
+				if(controller.down)
+					var/turf/below = locate(src.x, src.y, controller.down_target)
+					for(var/obj/structure/cable/c in below)
+						if(c.d1 == 12 || c.d2 == 12)
+							c.Del()
+///// Z-Level Stuff
 
 		del(src)
 
-		return	// not needed, but for clarity
+		return	// not needed, but for clarity	// not needed, but for clarity
 
 
 	else if(istype(W, /obj/item/weapon/cable_coil))
@@ -290,10 +311,51 @@
 		else
 			dirn = get_dir(F, user)
 
+		if(istype(F, /turf/simulated/floor/open))
+			for(var/obj/structure/cable/LC in F)
+				if((LC.d1 == dirn && LC.d2 == 11 ) || ( LC.d2 == dirn && LC.d1 == 11))
+					user << "<span class='warning'>There's already a cable at that position.</span>"
+					return
+
+			var/turf/simulated/floor/open/temp = F
+			var/obj/structure/cable/C = new(F)
+			var/obj/structure/cable/D = new(temp.floorbelow)
+
+			C.cableColor(item_color)
+
+			C.d1 = 11
+			C.d2 = dirn
+			C.add_fingerprint(user)
+			C.updateicon()
+
+			C.powernet = new()
+			powernets += C.powernet
+			C.powernet.cables += C
+
+			C.mergeConnectedNetworks(C.d2)
+			C.mergeConnectedNetworksOnTurf()
+
+			D.cableColor(item_color)
+
+			D.d1 = 12
+			D.d2 = 0
+			D.add_fingerprint(user)
+			D.updateicon()
+
+			D.powernet = C.powernet
+			D.powernet.cables += D
+
+			D.mergeConnectedNetworksOnTurf()
+
+		// do the normal stuff
+///// Z-Level Stuff
+
 		for(var/obj/structure/cable/LC in F)
 			if((LC.d1 == dirn && LC.d2 == 0 ) || ( LC.d2 == dirn && LC.d1 == 0))
 				user << "There's already a cable at that position."
 				return
+///// Z-Level Stuff
+		// check if the target is open space
 
 		var/obj/structure/cable/C = new(F)
 

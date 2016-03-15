@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1457975038
-DIR: code code\__HELPERS code\controllers code\datums code\datums\diseases code\datums\diseases\advance code\datums\diseases\advance\symptoms code\defines code\defines\obj code\game code\game\gamemodes code\game\gamemodes\cult code\modules code\modules\mob code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\human code\modules\mob\living\silicon code\modules\mob\living\silicon\ai code\modules\mob\living\silicon\robot code\modules\mob\living\simple_animal code\modules\mob\living\simple_animal\friendly code\modules\mob\living\simple_animal\hostile code\unused code\unused\hivebot code\WorkInProgress code\WorkInProgress\Cib code\WorkInProgress\Cib\amorph code\WorkInProgress\lie icons icons\misc icons\mob icons\obj interface maps 
+LAST_COMPILE_TIME: 1458057723
+DIR: code code\datums\diseases code\datums\diseases\advance code\datums\diseases\advance\symptoms code\defines code\defines\obj code\game\gamemodes code\game\gamemodes\cult code\game\machinery code\game\machinery\atmoalter code\game\machinery\pipe code\modules code\modules\power code\TriDimension code\WorkInProgress code\WorkInProgress\lie icons icons\obj icons\obj\machines maps 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 510.1331
-WINDOW: maps\pol_t_d.dmm;code\WorkInProgress\lie\F.dm;code\WorkInProgress\lie\shadow3d.dm;code\datums\mind.dm;code\modules\mob\mob.dm;code\modules\mob\living\carbon\human\life.dm;code\modules\mob\living\simple_animal\hostile\russian.dm;code\modules\mob\living\simple_animal\simple_animal.dm;code\modules\mob\living\carbon\human\hud.dm;icons\misc\fullscreen.dmi;icons\misc\inpipe.dmi;icons\mob\hud.dmi;icons\mob\screen1_full.dmi;code\modules\mob\living\carbon\human\human.dm;code\WorkInProgress\Cib\amorph\life.dm;code\modules\mob\living\silicon\ai\life.dm;code\modules\mob\living\silicon\robot\life.dm;code\unused\hivebot\life.dm;code\unused\hivebot\death.dm;code\unused\hivebot\mainframe.dm;code\modules\mob\living\silicon\ai\hud.dm;interface\skin.dmf
-FILE: interface\skin.dmf
+WINDOW: maps\pol_t_d.dmm;code\TriDimension\Pipes.dm;code\TriDimension\Turfs.dm;code\TriDimension\controller.dm;code\modules\recycling\disposal-construction.dm;code\game\machinery\pipe\pipe_dispenser.dm;code\modules\recycling\disposal.dm;icons\obj\structures.dmi;icons\obj\power.dmi;icons\obj\power_cond_blue.dmi;icons\obj\power_cond_white.dmi;icons\obj\power_cond_cyan.dmi;icons\obj\power_cond_green.dmi;icons\obj\power_cond_heavy.dmi;icons\obj\power_cond_orange.dmi;icons\obj\power_cond_pink.dmi;icons\obj\power_cond_red.dmi;icons\obj\power_cond_yellow.dmi;code\modules\power\cable.dm;code\defines\obj.dm
+FILE: code\modules\power\cable.dm
 */
 // END_INTERNALS

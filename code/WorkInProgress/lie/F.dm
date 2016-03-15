@@ -373,19 +373,25 @@ mob/living/carbon/human/Move()
 	check_FOV()
 
 mob/living/carbon/human/proc/check_FOV()
-	for(var/atom/movable/M in view(usr))
+	for(var/mob/living/M in view(usr))
 		if(!istype(M, /turf))
 			if(dir == 1)
 				if(M.y == y - 1 && (M.x < x - 1 || M.x < x + 1))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y - 2 && (M.x < x - 2 || M.x < x + 2))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y - 3 && (M.x < x - 3 || M.x < x + 3))
@@ -393,24 +399,36 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y - 4 && (M.x < x - 4 || M.x < x + 4))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y - 5 && (M.x < x - 5 || M.x < x + 5))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y - 6 && (M.x < x - 6 || M.x < x + 6))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 
@@ -418,12 +436,18 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else
 					IMAGE=image(M,M,M.icon_state,dir = M.dir)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 255
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 			if(dir == 2)
@@ -431,47 +455,72 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = FALSE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y + 2 && (M.x < x - 2 || M.x < x + 2))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y + 3 && (M.x < x - 3 || M.x < x + 3))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y + 4 && (M.x < x - 4 || M.x < x + 4))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
+
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y + 5 && (M.x < x - 5 || M.x < x + 5))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y + 6 && (M.x < x - 6 || M.x < x + 6))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.y == y + 7 && (M.x < x - 7 || M.x < x + 7))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else
 					IMAGE=image(M,M,M.icon_state,dir = M.dir)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 255
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 			if(dir == 8)
@@ -479,48 +528,72 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x + 2 && (M.y < y - 2 || M.y < y + 2))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x + 3 && (M.y < y - 3 || M.y < y + 3))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x + 4 && (M.y < y - 4 || M.y < y + 4))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x + 5 && (M.y < y - 5 || M.y < y + 5))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x + 6 && (M.y < y - 6 || M.y < y + 6))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x + 7 && (M.y < y - 7 || M.y < y + 7))
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else
 					IMAGE=image(M,M,M.icon_state,dir = M.dir)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 255
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 			if(dir == 4)
@@ -528,6 +601,9 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x - 2 && (M.y < y - 2 || M.y < y + 2))
@@ -535,6 +611,9 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x - 3 && (M.y < y - 3 || M.y < y + 3))
@@ -542,6 +621,9 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x - 4 && (M.y < y - 4 || M.y < y + 4))
@@ -549,6 +631,9 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x - 5 && (M.y < y - 5 || M.y < y + 5))
@@ -556,6 +641,9 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x - 6 && (M.y < y - 6 || M.y < y + 6))
@@ -563,6 +651,9 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else if(M.x == x - 7 && (M.y < y - 7 || M.y < y + 7))
@@ -570,10 +661,16 @@ mob/living/carbon/human/proc/check_FOV()
 					IMAGE=image('icons/nothing.dmi',M)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 1
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
 
 				else
 					IMAGE=image(M,M,M.icon_state,dir = M.dir)
 					IMAGE.override = TRUE
 					IMAGE.alpha = 255
+
+					IMAGE.pixel_x = M.pixel_x
+					IMAGE.pixel_y = M.pixel_y
 					usr << IMAGE
