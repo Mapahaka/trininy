@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1458057723
-DIR: code code\datums\diseases code\datums\diseases\advance code\datums\diseases\advance\symptoms code\defines code\defines\obj code\game\gamemodes code\game\gamemodes\cult code\game\machinery code\game\machinery\atmoalter code\game\machinery\pipe code\modules code\modules\power code\TriDimension code\WorkInProgress code\WorkInProgress\lie icons icons\obj icons\obj\machines maps 
+LAST_COMPILE_TIME: 1458145851
+DIR: code code\controllers code\datums\diseases code\datums\diseases\advance code\datums\diseases\advance\symptoms code\defines code\defines\obj code\game code\game\area code\game\gamemodes code\game\gamemodes\cult code\game\machinery\atmoalter code\game\objects code\game\objects\effects code\game\turfs code\modules code\modules\mob code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\human code\modules\mob\living\silicon code\modules\mob\living\silicon\ai code\unused code\unused\hivebot code\WorkInProgress code\WorkInProgress\lie icons icons\effects icons\misc icons\mob maps 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 510.1331
-WINDOW: maps\pol_t_d.dmm;code\TriDimension\Pipes.dm;code\TriDimension\Turfs.dm;code\TriDimension\controller.dm;code\modules\recycling\disposal-construction.dm;code\game\machinery\pipe\pipe_dispenser.dm;code\modules\recycling\disposal.dm;icons\obj\structures.dmi;icons\obj\power.dmi;icons\obj\power_cond_blue.dmi;icons\obj\power_cond_white.dmi;icons\obj\power_cond_cyan.dmi;icons\obj\power_cond_green.dmi;icons\obj\power_cond_heavy.dmi;icons\obj\power_cond_orange.dmi;icons\obj\power_cond_pink.dmi;icons\obj\power_cond_red.dmi;icons\obj\power_cond_yellow.dmi;code\modules\power\cable.dm;code\defines\obj.dm
-FILE: code\modules\power\cable.dm
+WINDOW: icons\misc\static.dmi;icons\misc\radar.dmi;icons\misc\largeui.dmi;icons\misc\inpipe.dmi;icons\effects\96x96.dmi;icons\effects\static.dmi;icons\effects\warning_stripes.dmi;icons\effects\spacevines.dmi;icons\effects\plasma.dmi;icons\effects\effects.dmi;icons\effects\contamination.dmi;icons\effects\crayondecal.dmi;icons\effects\liquid.dmi;icons\effects\lighting.dmi;icons\effects\lasers2.dmi;icons\mob\screen1_full.dmi;icons\snow.dmi;code\game\objects\effects\effect_system.dm;code\modules\mob\living\carbon\human\hud.dm;code\modules\mob\living\carbon\human\life.dm;code\modules\mob\living\carbon\human\human.dm;code\modules\mob\living\carbon\human\human_defense.dm;code\modules\mob\living\carbon\human\human_damage.dm;code\unused\hivebot\life.dm;code\modules\mob\living\silicon\ai\life.dm;code\modules\mob\living\silicon\ai\hud.dm;code\modules\mob\living\carbon\carbon.dm;code\modules\mob\mob_defines.dm;code\WorkInProgress\lie\snow.dm;maps\pol_t_d.dmm
+FILE: maps\pol_t_d.dmm
 */
 // END_INTERNALS

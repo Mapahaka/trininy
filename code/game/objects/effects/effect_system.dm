@@ -30,6 +30,14 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	mouse_opacity = 0
 	var/amount = 8.0
 
+/obj/effect/snow
+	name = "smoke"
+	icon = 'icons/snow.dmi'
+	icon_state = "snow"
+	opacity = 1
+	anchored = 0.0
+	mouse_opacity = 0
+
 /obj/effect/proc/delete()
 	loc = null
 	if(reagents)

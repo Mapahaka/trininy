@@ -357,6 +357,15 @@
 	mymob.blind.layer = -20
 	mymob.blind.alpha = GENERATOR_NE_RABOTAET_KOKOKO
 
+	mymob.snow = new /obj/screen()
+	mymob.snow.icon = 'icons/mob/screen1_full.dmi'
+	mymob.snow.icon_state = "let_it_snow"
+	mymob.snow.name = " "
+	mymob.snow.screen_loc = "1,1"
+	mymob.snow.mouse_opacity = 0
+	mymob.snow.layer = -20
+	mymob.snow.alpha = GENERATOR_NE_RABOTAET_KOKOKO
+
 	mymob.damageoverlay = new /obj/screen()
 	mymob.damageoverlay.icon = 'icons/mob/screen1_full.dmi'
 	mymob.damageoverlay.icon_state = "oxydamageoverlay0"
@@ -511,7 +520,7 @@
 
 	mymob.client.screen = null
 
-	mymob.client.screen += list( mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.pressure, mymob.toxin, mymob.bodytemp, mymob.internals, mymob.fire, mymob.healths, mymob.nutrition_icon, mymob.pullin, mymob.blind, mymob.flash, mymob.damageoverlay, mymob.gun_setting_icon) //, mymob.hands, mymob.rest, mymob.sleep) //, mymob.mach )
+	mymob.client.screen += list( mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.pressure, mymob.toxin, mymob.bodytemp, mymob.internals, mymob.fire, mymob.healths, mymob.nutrition_icon, mymob.pullin, mymob.blind, mymob.snow, mymob.flash, mymob.damageoverlay, mymob.gun_setting_icon) //, mymob.hands, mymob.rest, mymob.sleep) //, mymob.mach )
 	mymob.client.screen += src.adding + src.hotkeybuttons
 	inventory_shown = 0;
 

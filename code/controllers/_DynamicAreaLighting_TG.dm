@@ -139,6 +139,7 @@ turf/New()
 		if(light)	world.log << "## WARNING: [type] - Don't set lights up manually during New(), We do it automatically."
 		light = new(src)
 
+
 //Movable atoms with opacity when they are constructed will trigger nearby lights to update
 //Movable atoms with luminosity when they are constructed will create a light_source automatically
 //TODO: lag reduction

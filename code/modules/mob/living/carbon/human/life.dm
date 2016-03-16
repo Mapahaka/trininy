@@ -111,8 +111,9 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	check_FOV()
+	//check_FOV()
 	check_my_shadow()
+	check_my_snow()
 
 	handle_regular_hud_updates()
 
