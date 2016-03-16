@@ -763,7 +763,7 @@ commented out in r5061, I left it because of the shroom thingies
 			A.updateMineralOverlays()
 	src.updateMineralOverlays()
 
-/*
+
 /turf/simulated/floor/plating/airless/asteroid/Entered(atom/movable/M as mob|obj)
 	..()
 	if(istype(M,/mob/living/silicon/robot))
@@ -868,7 +868,7 @@ commented out in r5061, I left it because of the shroom thingies
 			spawn (0)
 				if ((M && M.loc))
 					M.loc.Entered(M)
-*/
+
 
 /turf/simulated/floor/plating/airless/asteroid/cave
 	icon_state = "wground1"
