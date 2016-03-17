@@ -305,7 +305,7 @@
 "afS" = (/obj/machinery/atmospherics/pipe/simple,/obj/structure/grille,/obj/machinery/meter,/turf/simulated/wall/r_wall,/area/atmos)
 "afT" = (/obj/machinery/door/airlock/multi_tile/vault,/turf/simulated/floor{icon_state = "dark"},/area/turret_protected/ai_upload_foyer)
 "afU" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 5},/turf/simulated/floor/plating,/area)
-"afV" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{tag = "icon-intact-r-f (WEST)"; icon_state = "intact-r-f"; dir = 8},/turf/simulated/floor/plating,/area)
+"afV" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 4},/turf/simulated/floor/plating,/area)
 "afW" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{tag = "icon-intact-r-f (NORTHWEST)"; icon_state = "intact-r-f"; dir = 9},/turf/simulated/floor/plating,/area)
 "afX" = (/obj/machinery/door/airlock/atmos{name = "Atmospherics"; req_access_txt = "24"},/turf/simulated/floor,/area/atmos)
 "afY" = (/obj/structure/grille,/obj/machinery/door/poddoor{density = 0; icon_state = "pdoor0"; id = "atmos"; name = "Atmos Blast Door"; opacity = 0},/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/plating,/area/atmos)
