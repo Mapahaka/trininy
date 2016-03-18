@@ -28,4 +28,4 @@
 	spawn (20)
 		if(P)	del(P)
 
-	usr.visible_message("<b>[usr]</b> указывает на [this]")
+	usr.visible_message("<b>[usr]</b> points to [this]")

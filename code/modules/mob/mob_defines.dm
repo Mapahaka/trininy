@@ -23,7 +23,6 @@
 	var/obj/screen/bodytemp = null
 	var/obj/screen/healths = null
 	var/obj/screen/throw_icon = null
-	var/obj/screen/snow = null
 	var/obj/screen/nutrition_icon = null
 	var/obj/screen/pressure = null
 	var/obj/screen/damageoverlay = null
@@ -32,6 +31,7 @@
 	var/obj/screen/gun/move/gun_move_icon = null
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
+	var/obj/screen/snow = null
 
 	/*A bunch of this stuff really needs to go under their own defines instead of being globally attached to mob.
 	A variable should only be globally attached to turfs/objects/whatever, when it is in fact needed as such.
@@ -90,7 +90,7 @@
 	var/list/pinned = list()            //List of things pinning this creature to walls (see living_defense.dm)
 	var/list/embedded = list()          //Embedded items, since simple mobs don't have organs.
 	var/list/languages = list()         // For speaking/listening.
-	var/list/speak_emote = list("говорит") //Verbs used when speaking. Defaults to 'say' if speak_emote is null.
+	var/list/speak_emote = list("says") //Verbs used when speaking. Defaults to 'say' if speak_emote is null.
 
 	var/name_archive //For admin things like possession
 
@@ -157,7 +157,7 @@
 	var/list/mutations = list() //Carbon -- Doohl
 	//see: setup.dm for list of mutations
 
-	var/voice_name = "неидентифицированный голос"
+	var/voice_name = "unidentifiable voice"
 
 	var/faction = "neutral" //Used for checking whether hostile simple animals will attack you, possibly more stuff later
 

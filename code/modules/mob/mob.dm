@@ -21,12 +21,12 @@
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/t = "\blue Координаты: [x],[y] \n"
-	t+= "\red Температура: [environment.temperature] \n"
-	t+= "\blue Азот: [environment.nitrogen] \n"
-	t+= "\blue Кислород: [environment.oxygen] \n"
-	t+= "\blue Плазма : [environment.toxins] \n"
-	t+= "\blue Углекислый газ: [environment.carbon_dioxide] \n"
+	var/t = "\blue Coordinates: [x],[y] \n"
+	t+= "\red Temperature: [environment.temperature] \n"
+	t+= "\blue Nitrogen: [environment.nitrogen] \n"
+	t+= "\blue Oxygen: [environment.oxygen] \n"
+	t+= "\blue Plasma : [environment.toxins] \n"
+	t+= "\blue Carbon Dioxide: [environment.carbon_dioxide] \n"
 	for(var/datum/gas/trace_gas in environment.trace_gases)
 		usr << "\blue [trace_gas.type]: [trace_gas.moles] \n"
 
@@ -53,7 +53,7 @@
 					return
 	// Added voice muffling for Issue 41.
 	if(stat == UNCONSCIOUS || sleeping > 0)
-		src << "<I>... ты слышишь чью-то речь ...</I>"
+		src << "<I>... You can almost hear someone talking ...</I>"
 	else
 		src << msg
 	return
@@ -157,7 +157,7 @@
 			del(W)
 		else
 			if(!disable_warning)
-				src << "\red Ты не можешь надеть это." //Only print if del_on_fail is false
+				src << "\red You are unable to equip that." //Only print if del_on_fail is false
 		return 0
 
 	equip_to_slot(W, slot, redraw_mob) //This proc should not ever fail.
@@ -221,14 +221,14 @@ var/list/slot_equipment_priority = list( \
 	var/dat = {"
 	<B><HR><FONT size=3>[name]</FONT></B>
 	<BR><HR>
-	<BR><B>Голова (маска):</B> <A href='?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Лева&#255; рука:</B> <A href='?src=\ref[src];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Права&#255; рука:</B> <A href='?src=\ref[src];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Зад:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/weapon/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
+	<BR><B>Head(Mask):</B> <A href='?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
+	<BR><B>Left Hand:</B> <A href='?src=\ref[src];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
+	<BR><B>Right Hand:</B> <A href='?src=\ref[src];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
+	<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/weapon/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
 	<BR>[(internal ? text("<A href='?src=\ref[src];item=internal'>Remove Internal</A>") : "")]
-	<BR><A href='?src=\ref[src];item=pockets'>Опустошить карманы</A>
-	<BR><A href='?src=\ref[user];refresh=1'>Обновить</A>
-	<BR><A href='?src=\ref[user];mach_close=mob[name]'>Закрыть</A>
+	<BR><A href='?src=\ref[src];item=pockets'>Empty Pockets</A>
+	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
+	<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>
 	<BR>"}
 	user << browse(dat, text("window=mob[];size=325x500", name))
 	onclose(user, "mob[name]")
@@ -344,8 +344,8 @@ var/list/slot_equipment_priority = list( \
 
 /mob/proc/warn_flavor_changed()
 	if(flavor_text && flavor_text != "") // don't spam people that don't use it!
-		src << "<h2 class='alert'>OOC предупреждение:</h2>"
-		src << "<span class='alert'>Возможно, описание твоего персонажа устарело! <a href='byond://?src=\ref[src];flavor_change=1'>Изменить</a></span>"
+		src << "<h2 class='alert'>OOC Warning:</h2>"
+		src << "<span class='alert'>Your flavor text is likely out of date! <a href='byond://?src=\ref[src];flavor_change=1'>Change</a></span>"
 
 /mob/proc/print_flavor_text()
 	if (flavor_text && flavor_text != "")
@@ -353,7 +353,7 @@ var/list/slot_equipment_priority = list( \
 		if(lentext(msg) <= 40)
 			return "\blue [msg]"
 		else
-			return "\blue [copytext(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>Еще...</a>"
+			return "\blue [copytext(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a>"
 
 /*
 /mob/verb/help()
@@ -367,35 +367,35 @@ var/list/slot_equipment_priority = list( \
 	set category = "OOC"
 
 	if (!( abandon_allowed ))
-		usr << "\blue Респаун выключен."
+		usr << "\blue Respawn is disabled."
 		return
 	if ((stat != 2 || !( ticker )))
-		usr << "\blue <B>Ты должен умереть, дл&#255; того, чтобы иметь доступ к этой функции!</B>"
+		usr << "\blue <B>You must be dead to use this!</B>"
 		return
 	if (ticker.mode.name == "meteor" || ticker.mode.name == "epidemic") //BS12 EDIT
-		usr << "\blue Респаун выключен."
+		usr << "\blue Respawn is disabled."
 		return
 	else
 		var/deathtime = world.time - src.timeofdeath
 		var/deathtimeminutes = round(deathtime / 600)
-		var/pluralcheck = "минута"
+		var/pluralcheck = "minute"
 		if(deathtimeminutes == 0)
 			pluralcheck = ""
 		else if(deathtimeminutes == 1)
-			pluralcheck = " [deathtimeminutes] минута и"
+			pluralcheck = " [deathtimeminutes] minute and"
 		else if(deathtimeminutes > 1)
-			pluralcheck = " [deathtimeminutes] минут и"
+			pluralcheck = " [deathtimeminutes] minutes and"
 		var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
-		usr << "<B></B>Ты мертв уже как[pluralcheck] [deathtimeseconds] секунд."
+		usr << "You have been dead for[pluralcheck] [deathtimeseconds] seconds."
 		if (deathtime < timetorespawn*600)
-			usr << "Ты должен переждать [timetorespawn] минут дл&#255; того, чтобы суметь по&#255;витьс&#255; вновь."
+			usr << "You must wait [timetorespawn] minutes to respawn!"
 			return
 		else
-			usr << "Теперь ты можешь респаунитьс&#255;, наслаждайс&#255; новой жизнью!"
+			usr << "You can respawn now, enjoy your new life!"
 
 	log_game("[usr.name]/[usr.key] used abandon mob.")
 
-	usr << "\blue <B>Убедитесь в том, что вы выбрали другого персонажа!</B>"
+	usr << "\blue <B>Make sure to play a different character, and please roleplay correctly!</B>"
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.")
@@ -453,7 +453,7 @@ var/list/slot_equipment_priority = list( \
 	if(client.holder && (client.holder.rights & R_ADMIN))
 		is_admin = 1
 	else if(stat != DEAD || istype(src, /mob/new_player))
-		usr << "\blue Ты должен наблюдать, чтобы иметь доступ к этой функции!"
+		usr << "\blue You must be observing to use this!"
 		return
 
 	if(is_admin && stat == DEAD)
@@ -514,7 +514,7 @@ var/list/slot_equipment_priority = list( \
 	var/eye_name = null
 
 	var/ok = "[is_admin ? "Admin Observe" : "Observe"]"
-	eye_name = input("Пожалуйста, выберите игрока!", ok, null, null) as null|anything in creatures
+	eye_name = input("Please, select a player!", ok, null, null) as null|anything in creatures
 
 	if (!eye_name)
 		return
@@ -707,8 +707,8 @@ note dizziness decrements automatically in the mob's Life() proc.
 	if(statpanel("Status"))	//not looking at that panel
 
 		if(client && client.holder)
-			stat(null,"Coordinates:\t([x], [y], [z])")
-			stat(null,"Child Porn Uploading:\t[world.cpu]")
+			stat(null,"Location:\t([x], [y], [z])")
+			stat(null,"CPU:\t[world.cpu]")
 			stat(null,"Instances:\t[world.contents.len]")
 
 			if(master_controller)
@@ -910,11 +910,11 @@ mob/verb/yank_out_object()
 	usr.next_move = world.time + 20
 
 	if(usr.stat == 1)
-		usr << "Ты без сознани&#255;, потому не можешь пользоватьс&#255; этой функцией!"
+		usr << "You are unconcious and cannot do that!"
 		return
 
 	if(usr.restrained())
-		usr << "Твои руки заблокированы, потому не можешь пользоватьс&#255; этой функцией!"
+		usr << "You are restrained and cannot do that!"
 		return
 
 	var/mob/S = src
@@ -931,17 +931,17 @@ mob/verb/yank_out_object()
 
 	if(!valid_objects.len)
 		if(self)
-			src << "В твоем телом нет ничего такого огромног, что ты бы мог вытащить."
+			src << "You have nothing stuck in your body that is large enough to remove."
 		else
-			U << "[src] не имеет ничего такого огромного и инородного в своем теле, что можно было бы вытащить.."
+			U << "[src] has nothing stuck in their wounds that is large enough to remove."
 		return
 
-	var/obj/item/weapon/selection = input("Что ты хочешь вытащить?", "Инородные Тела") in valid_objects
+	var/obj/item/weapon/selection = input("What do you want to yank out?", "Embedded objects") in valid_objects
 
 	if(self)
-		src << "<span class='warning'>Ты пытаешьс&#255; хорошо ухватитьс&#255; за [selection], что в своем теле.</span>"
+		src << "<span class='warning'>You attempt to get a good grip on the [selection] in your body.</span>"
 	else
-		U << "<span class='warning'>Ты пытаешьс&#255; хорошо ухватитьс&#255; за [selection] в теле [S].</span>"
+		U << "<span class='warning'>You attempt to get a good grip on the [selection] in [S]'s body.</span>"
 
 	if(!do_after(U, 80))
 		return
@@ -949,9 +949,9 @@ mob/verb/yank_out_object()
 		return
 
 	if(self)
-		visible_message("<span class='warning'><b>[src] вырывает [selection] из свого тела.</b></span>","<span class='warning'><b>Ты вырываешь [selection] из своего тела.</b></span>")
+		visible_message("<span class='warning'><b>[src] rips [selection] out of their body.</b></span>","<span class='warning'><b>You rip [selection] out of your body.</b></span>")
 	else
-		visible_message("<span class='warning'><b>[usr] вырывает [selection] из тела [src].</b></span>","<span class='warning'><b>[usr] вырывает [selection] из твоего тела.</b></span>")
+		visible_message("<span class='warning'><b>[usr] rips [selection] out of [src]'s body.</b></span>","<span class='warning'><b>[usr] rips [selection] out of your body.</b></span>")
 
 	selection.loc = get_turf(src)
 

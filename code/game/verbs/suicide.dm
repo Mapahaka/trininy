@@ -4,11 +4,11 @@
 	set hidden = 1
 
 	if (stat == DEAD)
-		src << "Ты и так мертв!"
+		src << "You're already dead!"
 		return
 
 	if (!ticker)
-		src << "Ты не можешь совершить суицид до того, как игра началась!"
+		src << "You can't commit suicide before the game starts!"
 		return
 
 
@@ -20,19 +20,19 @@
 			break
 
 	if(!permitted)
-		message_admins("[ckey] попыталс&#255; совершить суицид.", 1)
-		src << "Нельз&#255;. Обращайс&#255; к администрации, если на то есть причины."
+		message_admins("[ckey] has tried to suicide, but they were not permitted due to not being antagonist as human.", 1)
+		src << "No. Adminhelp if there is a legitimate reason."
 		return
 
 	if (suiciding)
-		src << "Ты и без того совершаешь суицид!"
+		src << "You're already committing suicide! Be patient!"
 		return
 
-	var/confirm = alert("Ты уверен, что хочешь совершить суицид?", "Подтверждение", "Да", "Нет")
+	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
 
-	if(confirm == "Да")
+	if(confirm == "Yes")
 		if(!canmove || restrained())	//just while I finish up the new 'fun' suiciding verb. This is to prevent metagaming via suicide
-			src << "Ты не можешь совершить суицид, так как твои руки ограничены! (( Однако, ты можешь воспользоватьс&#255; командой Ghost. ))"
+			src << "You can't commit suicide whilst restrained! ((You can type Ghost instead however.))"
 			return
 		suiciding = 1
 		var/obj/item/held_item = get_active_hand()
@@ -78,10 +78,10 @@
 				return
 
 
-		viewers(src) << pick("\red <b>[src] пытаетс&#255; отгрызть свой &#255;зык! Божечки, да \he же пытаетс&#255; совершить суицид!</b>", \
-							"\red <b>[src] пытаетс&#255; всунуть свой большой палец в \his глазницу! Божечки, да \he же пытаетс&#255; совершить суицид!</b>", \
-							"\red <b>[src] пытаетс&#255; свернуть свою шею! Божечки, да \he же пытаетс&#255; совершить суицид!</b>", \
-							"\red <b>[src] пытаетс&#255; перекрыть свои дыхательные пути! Божечки, да \he же пытаетс&#255; совершить суицид!</b>")
+		viewers(src) << pick("\red <b>[src] is attempting to bite \his tongue off! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[src] is jamming \his thumbs into \his eye sockets! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[src] is twisting \his own neck! It looks like \he's trying to commit suicide.</b>", \
+							"\red <b>[src] is holding \his breath! It looks like \he's trying to commit suicide.</b>")
 		adjustOxyLoss(max(175 - getToxLoss() - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
 		updatehealth()
 
@@ -89,22 +89,22 @@
 	set hidden = 1
 
 	if (stat == 2)
-		src << "Ты и так мертв!"
+		src << "You're already dead!"
 		return
 
 	if (!ticker)
-		src << "Ты не можешь совершить суицид до того, как игра началась!"
+		src << "You can't commit suicide before the game starts!"
 		return
 
 	if (suiciding)
-		src << "Ты и без того совершаешь суицид!"
+		src << "You're already committing suicide! Be patient!"
 		return
 
-	var/confirm = alert("Ты уверен, что хочешь совершить суицид?", "Подтверждение", "Да", "Нет")
+	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
 
-	if(confirm == "Да")
+	if(confirm == "Yes")
 		suiciding = 1
-		viewers(loc) << "\red <b>Лицо [src] становитс&#255; тусклым и его маска медленно смен&#255;етс&#255; на безжизненную. Похоже, он потер&#255;л надежду и возможность в счастливую жизнь.</b>"
+		viewers(loc) << "\red <b>[src]'s brain is growing dull and lifeless. It looks like it's lost the will to live.</b>"
 		spawn(50)
 			death(0)
 			suiciding = 0
@@ -113,26 +113,26 @@
 	set hidden = 1
 
 	if (stat == 2)
-		src << "Ты и так мертв!"
+		src << "You're already dead!"
 		return
 
 	if (!ticker)
-		src << "Ты не можешь совершить суицид до того, как игра началась!"
+		src << "You can't commit suicide before the game starts!"
 		return
 
 	if (suiciding)
-		src << "Ты и без того совершаешь суицид!"
+		src << "You're already committing suicide! Be patient!"
 		return
 
-	var/confirm = alert("Ты уверен, что хочешь совершить суицид?", "Подтверждение", "Да", "Нет")
+	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
 
-	if(confirm == "Да")
+	if(confirm == "Yes")
 		if(!canmove || restrained())
-			src << "Ты не можешь совершить суицид, так как твои руки ограничены! (( Однако, ты можешь воспользоватьс&#255; командой Ghost. ))"
+			src << "You can't commit suicide whilst restrained! ((You can type Ghost instead however.))"
 			return
 		suiciding = 1
 		//instead of killing them instantly, just put them at -175 health and let 'em gasp for a while
-		viewers(src) << "\red <b>[src] пытаетс&#255; отгрызть свой &#255;зык! Божечки, да \he же пытаетс&#255; совершить суицид!/b>"
+		viewers(src) << "\red <b>[src] is attempting to bite \his tongue. It looks like \he's trying to commit suicide.</b>"
 		adjustOxyLoss(max(175- getToxLoss() - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
 		updatehealth()
 
@@ -140,18 +140,18 @@
 	set hidden = 1
 
 	if (stat == 2)
-		src << "Ты и так мертв!"
+		src << "You're already dead!"
 		return
 
 	if (suiciding)
-		src << "Ты и без того совершаешь суицид!"
+		src << "You're already committing suicide! Be patient!"
 		return
 
-	var/confirm = alert("Ты уверен, что хочешь совершить суицид?", "Подтверждение", "Да", "Нет")
+	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
 
-	if(confirm == "Да")
+	if(confirm == "Yes")
 		suiciding = 1
-		viewers(src) << "\red <b>[src] резко отключаетс&#255;! Божечки, да \he же пытаетс&#255; совершить суицид!</b>"
+		viewers(src) << "\red <b>[src] is powering down. It looks like \he's trying to commit suicide.</b>"
 		//put em at -175
 		adjustOxyLoss(max(maxHealth * 2 - getToxLoss() - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
 		updatehealth()
@@ -160,18 +160,18 @@
 	set hidden = 1
 
 	if (stat == 2)
-		src << "Ты и так мертв!"
+		src << "You're already dead!"
 		return
 
 	if (suiciding)
-		src << "Ты и без того совершаешь суицид!"
+		src << "You're already committing suicide! Be patient!"
 		return
 
-	var/confirm = alert("Ты уверен, что хочешь совершить суицид?", "Подтверждение", "Да", "Нет")
+	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
 
-	if(confirm == "Да")
+	if(confirm == "Yes")
 		suiciding = 1
-		viewers(src) << "\red <b>[src] резко отключаетс&#255;! Божечки, да \he же пытаетс&#255; совершить суицид!</b>"
+		viewers(src) << "\red <b>[src] is powering down. It looks like \he's trying to commit suicide.</b>"
 		//put em at -175
 		adjustOxyLoss(max(maxHealth * 2 - getToxLoss() - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
 		updatehealth()
@@ -180,33 +180,33 @@
 	set category = "pAI Commands"
 	set desc = "Kill yourself and become a ghost (You will receive a confirmation prompt)"
 	set name = "pAI Suicide"
-	var/answer = input("Ты действительно хочешь окислить свои цепи? Это действие нельз&#255; отменить", "Суицид", "Нет") in list ("Да", "Нет")
-	if(answer == "Да")
+	var/answer = input("REALLY kill yourself? This action can't be undone.", "Suicide", "No") in list ("Yes", "No")
+	if(answer == "Yes")
 		var/obj/item/device/paicard/card = loc
 		card.removePersonality()
 		var/turf/T = get_turf_or_move(card.loc)
 		for (var/mob/M in viewers(T))
-			M.show_message("\blue [src] выводит сообщение на свой экран \"Форматирование жесткого диска. Пожалуйста, скачайте другую личность карманного ИИ дл&#255; того, чтобы продолжить пользование девайсом.\"", 3, "\blue [src] издает короткие электронные звуки.", 2)
+			M.show_message("\blue [src] flashes a message across its screen, \"Wiping core files. Please acquire a new personality to continue using pAI device functions.\"", 3, "\blue [src] bleeps electronically.", 2)
 		death(0)
 	else
-		src << "Нет - так нет."
+		src << "Aborting suicide attempt."
 
 /mob/living/carbon/alien/humanoid/verb/suicide()
 	set hidden = 1
 
 	if (stat == 2)
-		src << "Ты и так мертв!"
+		src << "You're already dead!"
 		return
 
 	if (suiciding)
-		src << "Ты и без того совершаешь суицид!"
+		src << "You're already committing suicide! Be patient!"
 		return
 
-	var/confirm = alert("Ты уверен, что хочешь совершить суицид?", "Подтверждение", "Да", "Нет")
+	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
 
-	if(confirm == "Да")
+	if(confirm == "Yes")
 		suiciding = 1
-		viewers(src) << "\red <b>[src] издает дикие звуки! Божечки, да \he же пытаетс&#255; совершить суицид!</b>"
+		viewers(src) << "\red <b>[src] is thrashing wildly! It looks like \he's trying to commit suicide.</b>"
 		//put em at -175
 		adjustOxyLoss(max(175 - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
 		updatehealth()
@@ -215,16 +215,16 @@
 /mob/living/carbon/slime/verb/suicide()
 	set hidden = 1
 	if (stat == 2)
-		src << "Ты и так мертв!"
+		src << "You're already dead!"
 		return
 
 	if (suiciding)
-		src << "Ты и без того совершаешь суицид!"
+		src << "You're already committing suicide! Be patient!"
 		return
 
-	var/confirm = alert("Ты уверен, что хочешь совершить суицид?", "Подтверждение", "Да", "Нет")
+	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
 
-	if(confirm == "Да")
+	if(confirm == "Yes")
 		suiciding = 1
 		setOxyLoss(100)
 		adjustBruteLoss(100 - getBruteLoss())

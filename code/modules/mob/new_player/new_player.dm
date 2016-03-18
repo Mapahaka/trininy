@@ -24,19 +24,19 @@
 
 
 	proc/new_player_panel_proc()
-		var/output = "<div align='center'><B>Лобби</B>"
+		var/output = "<div align='center'><B>New Player Options</B>"
 		output +="<hr>"
-		output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Настроить персонажа</A></p>"
+		output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
 		if(!ticker || ticker.current_state <= GAME_STATE_PREGAME)
-			if(!ready)	output += "<p><a href='byond://?src=\ref[src];ready=1'>Присоединитьс&#255;</A></p>"
-			else	output += "<p><b>Ты готов</b> (<a href='byond://?src=\ref[src];ready=2'>Отмена</A>)</p>"
+			if(!ready)	output += "<p><a href='byond://?src=\ref[src];ready=1'>Declare Ready</A></p>"
+			else	output += "<p><b>You are ready</b> (<a href='byond://?src=\ref[src];ready=2'>Cancel</A>)</p>"
 
 		else
-			output += "<a href='byond://?src=\ref[src];manifest=1'>Посмотреть Список Экипажа</A><br><br>"
-			output += "<p><a href='byond://?src=\ref[src];late_join=1'>Присоединитьс&#255;</A></p>"
+			output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><br><br>"
+			output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</A></p>"
 
-		output += "<p><a href='byond://?src=\ref[src];observe=1'>Наблюдать</A></p>"
+		output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
 		output += "</div>"
 
 		src << browse(output,"window=playersetup;size=210x240;can_close=0")
@@ -48,25 +48,25 @@
 		statpanel("Status")
 		if (client.statpanel == "Status" && ticker)
 			if (ticker.current_state != GAME_STATE_PREGAME)
-				stat(null, "Time: [worldtime2text()]")
+				stat(null, "Station Time: [worldtime2text()]")
 		statpanel("Lobby")
 		if(client.statpanel=="Lobby" && ticker)
 			if(ticker.hide_mode)
-				stat("Gamemode:", "Secret")
+				stat("Game Mode:", "Secret")
 			else
-				stat("Gamemode:", "[master_mode]")
+				stat("Game Mode:", "[master_mode]")
 
 			if((ticker.current_state == GAME_STATE_PREGAME) && going)
-				stat("Time to start:", ticker.pregame_timeleft)
+				stat("Time To Start:", ticker.pregame_timeleft)
 			if((ticker.current_state == GAME_STATE_PREGAME) && !going)
-				stat("Time to start:", "Delayed")
+				stat("Time To Start:", "DELAYED")
 
 			if(ticker.current_state == GAME_STATE_PREGAME)
-				stat("Игроков: [totalPlayers]", "Человек готово: [totalPlayersReady]")
+				stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
 				totalPlayers = 0
 				totalPlayersReady = 0
 				for(var/mob/new_player/player in player_list)
-					stat("[player.key]", (player.ready)?("(PLAYING)"):(null))
+					stat("[player.key]", (player.ready)?("(Playing)"):(null))
 					totalPlayers++
 					if(player.ready)totalPlayersReady++
 
@@ -86,7 +86,7 @@
 
 		if(href_list["observe"])
 
-			if(alert(src,"Ты уверен, что хочешь наблюдать? Возможно, тебе стоит подождать некоторое врем&#255; до того, чтобы присоединитьс&#255;. ","Лобби","Да","Нет") == "Да")
+			if(alert(src,"Are you sure you wish to observe? You will have to wait 30 minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
 				if(!client)	return 1
 				var/mob/dead/observer/observer = new()
 
@@ -96,7 +96,7 @@
 				observer.started_as_observer = 1
 				close_spawn_windows()
 				var/obj/O = locate("landmark*Observer-Start")
-				src << "\blue Перемещаем."
+				src << "\blue Now teleporting."
 				observer.loc = O.loc
 				if(client.prefs.be_random_name)
 					client.prefs.real_name = random_name(client.prefs.gender)
@@ -109,13 +109,13 @@
 
 		if(href_list["late_join"])
 			if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
-				usr << "\red Раунд еще не началс&#255;, либо уже закончен..."
+				usr << "\red The round is either not ready, or has already finished..."
 				return
 
 			if(client.prefs.species != "Human")
 
 				if(!is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-					src << alert("У теб&#255; нет права играть [client.prefs.species].")
+					src << alert("You are currently not whitelisted to play [client.prefs.species].")
 					return 0
 
 			LateChoices()
@@ -126,11 +126,11 @@
 		if(href_list["SelectedJob"])
 
 			if(!enter_allowed)
-				usr << "\blue В данный момент, можно присоединитьс&#255; к игре!"
+				usr << "\blue There is an administrative lock on entering the game!"
 				return
 
 			if(!is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-				src << alert("У теб&#255; нет права играть [client.prefs.species].")
+				src << alert("You are currently not whitelisted to play [client.prefs.species].")
 				return 0
 
 			AttemptLateSpawn(href_list["SelectedJob"])
@@ -155,13 +155,13 @@
 		if (src != usr)
 			return 0
 		if(!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			usr << "\red Раунд еще не началс&#255;, либо уже закончен..."
+			usr << "\red The round is either not ready, or has already finished..."
 			return 0
 		if(!enter_allowed)
-			usr << "\blue В данный момент, можно присоединитьс&#255; к игре!"
+			usr << "\blue There is an administrative lock on entering the game!"
 			return 0
 		if(!IsJobAvailable(rank))
-			src << alert("Роль [rank] недоступна. Попробуй выбрать другую.")
+			src << alert("[rank] is not available. Please try another.")
 			return 0
 
 		job_master.AssignRole(src, rank, 1)
@@ -190,7 +190,7 @@
 			var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)// BS12 EDIT Arrivals Announcement Computer, rather than the AI.
 			if(character.mind.role_alt_title)
 				rank = character.mind.role_alt_title
-			a.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] прибыл на пол&#255;рный комлекс.", "Arrivals Announcement Computer")
+			a.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] has arrived on the station.", "Arrivals Announcement Computer")
 			del(a)
 
 	proc/LateChoices()
@@ -200,17 +200,17 @@
 		var/hours = mills / 36000
 
 		var/dat = "<html><body><center>"
-		dat += "Длительность раунда: [round(hours)]h [round(mins)]m<br>"
+		dat += "Round Duration: [round(hours)]h [round(mins)]m<br>"
 
 		if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
 			if(emergency_shuttle.direction == 2) //Shuttle is going to centcomm, not recalled
-				dat += "<font color='red'><b>Комплекс эвакуирован.</b></font><br>"
+				dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
 			if(emergency_shuttle.direction == 1 && emergency_shuttle.timeleft() < 300 && emergency_shuttle.alert == 0) // Emergency shuttle is past the point of no recall
-				dat += "<font color='red'>Комплекс в насто&#255;щий момент проходит процедуру эвакуации.</font><br>"
+				dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
 			if(emergency_shuttle.direction == 1 && emergency_shuttle.alert == 1) // Crew transfer initiated
-				dat += "<font color='red'>Комплекс в насто&#255;щий момент заканчивает рабочую смену.</font><br>"
+				dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
 
-		dat += "Выбирайте одну из свободных ролей:<br>"
+		dat += "Choose from the following open positions:<br>"
 		for(var/datum/job/job in job_master.occupations)
 			if(job && IsJobAvailable(job.title))
 				var/active = 0

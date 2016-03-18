@@ -107,7 +107,7 @@
 			affecting.loc = assailant.loc
 	if ((killing == 2 && state == 3))
 		if(assailant.loc != kill_loc)
-			assailant.visible_message("\red [assailant] тер&#255;ет \his хватку за шею [affecting]!")
+			assailant.visible_message("\red [assailant] lost \his tightened grip on [affecting]'s neck!")
 			killing = 0
 			hud1.icon_state = "disarm/kill"
 			return
@@ -138,7 +138,7 @@
 		if(1.0)
 			if (state >= 3)
 				if (!( killing ))
-					assailant.visible_message("\red [assailant] усиливает \his хватку за [affecting]!")
+					assailant.visible_message("\red [assailant] has temporarily tightened \his grip on [affecting]!")
 						//Foreach goto(97)
 					assailant.next_move = world.time + 10
 					//affecting.stunned = max(2, affecting.stunned)
@@ -167,7 +167,7 @@
 			if (state < 2)
 				if (!( allow_upgrade ))
 					return
-				assailant.visible_message("\red [assailant] агрессивно схватил [affecting]!")
+				assailant.visible_message("\red [assailant] has grabbed [affecting] aggressively (now hands)!")
 				state = 2
 				icon_state = "grabbed1"
 				/*if (prob(75))
@@ -185,7 +185,7 @@
 					if(istype(affecting, /mob/living/carbon/human))
 						var/mob/living/carbon/human/H = affecting
 						if(FAT in H.mutations)
-							assailant << "\blue [affecting] слишком толстый, ты не можешь нормально ухватить его за шею и задушить!"
+							assailant << "\blue You can't strangle [affecting] through all that fat!"
 							return
 
 						/*Hrm might want to add this back in
@@ -201,22 +201,22 @@
 						*/
 
 					if(istype(affecting, /mob/living/carbon/slime))
-						assailant << "\blue Вы сжимаете [affecting], но ничего интесного это за собой не влечет."
+						assailant << "\blue You squeeze [affecting], but nothing interesting happens."
 						return
 
-					assailant.visible_message("\red [assailant] усиливает \his хватку за шею [affecting]!")
+					assailant.visible_message("\red [assailant] has reinforced \his grip on [affecting] (now neck)!")
 					state = 3
 					icon_state = "grabbed+1"
 					if (!( affecting.buckled ))
 						affecting.loc = assailant.loc
-					affecting.attack_log += text("\[[time_stamp()]\] <font color='orange'>Ше&#255; схвачена [assailant.name] ([assailant.ckey])</font>")
-					assailant.attack_log += text("\[[time_stamp()]\] <font color='red'>Схватил шею [affecting.name] ([affecting.ckey])</font>")
-					msg_admin_attack("[assailant.name] ([assailant.ckey]) схватил шею [affecting.name] ([affecting.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[assailant.x];Y=[assailant.y];Z=[assailant.z]'>JMP</a>)")
+					affecting.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>")
+					assailant.attack_log += text("\[[time_stamp()]\] <font color='red'>Grabbed the neck of [affecting.name] ([affecting.ckey])</font>")
+					msg_admin_attack("[assailant.name] ([assailant.ckey]) grabbed the neck of [affecting.name] ([affecting.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[assailant.x];Y=[assailant.y];Z=[assailant.z]'>JMP</a>)")
 					hud1.icon_state = "disarm/kill"
 					hud1.name = "disarm/kill"
 				else
 					if (state >= 3 && !killing)
-						assailant.visible_message("\red [assailant] начинает усиливать \his хватку за шею [affecting]!")
+						assailant.visible_message("\red [assailant] starts to tighten \his grip on [affecting]'s neck!")
 						hud1.icon_state = "disarm/kill1"
 						killing = 1
 						if(do_after(assailant, 40))
@@ -230,15 +230,15 @@
 								return
 							killing = 2
 							kill_loc = assailant.loc
-							assailant.visible_message("\red [assailant] усиливает \his хватку за шею [affecting]!")
-							affecting.attack_log += text("\[[time_stamp()]\] <font color='orange'>[assailant.name] ([assailant.ckey]) кого-то душит!</font>")
-							assailant.attack_log += text("\[[time_stamp()]\] <font color='red'>Душит [affecting.name] ([affecting.ckey])</font>")
-							msg_admin_attack("[assailant.name] ([assailant.ckey]) душит [affecting.name] ([affecting.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[assailant.x];Y=[assailant.y];Z=[assailant.z]'>JMP</a>)")
+							assailant.visible_message("\red [assailant] has tightened \his grip on [affecting]'s neck!")
+							affecting.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been strangled (kill intent) by [assailant.name] ([assailant.ckey])</font>")
+							assailant.attack_log += text("\[[time_stamp()]\] <font color='red'>Strangled (kill intent) [affecting.name] ([affecting.ckey])</font>")
+							msg_admin_attack("[assailant.name] ([assailant.ckey]) Strangled (kill intent) [affecting.name] ([affecting.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[assailant.x];Y=[assailant.y];Z=[assailant.z]'>JMP</a>)")
 
 							assailant.next_move = world.time + 10
 							affecting.losebreath += 1
 						else
-							assailant.visible_message("\red [assailant] не смог усилить \his хватку за шею [affecting]!")
+							assailant.visible_message("\red [assailant] was unable to tighten \his grip on [affecting]'s neck!")
 							killing = 0
 							hud1.icon_state = "disarm/kill"
 	return
@@ -269,12 +269,12 @@
 	if(M == assailant && state >= 2)
 		if( ( ishuman(user) && (FAT in user.mutations) && ismonkey(affecting) ) || ( isalien(user) && iscarbon(affecting) ) )
 			var/mob/living/carbon/attacker = user
-			user.visible_message("\red <B>[user] пытаетс&#255; поглотить [affecting]!</B>")
+			user.visible_message("\red <B>[user] is attempting to devour [affecting]!</B>")
 			if(istype(user, /mob/living/carbon/alien/humanoid/hunter))
 				if(!do_mob(user, affecting)||!do_after(user, 30)) return
 			else
 				if(!do_mob(user, affecting)||!do_after(user, 100)) return
-			user.visible_message("\red <B>[user] поглощает [affecting]!</B>")
+			user.visible_message("\red <B>[user] devours [affecting]!</B>")
 			affecting.loc = user
 			attacker.stomach_contents.Add(affecting)
 			del(src)

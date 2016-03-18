@@ -14,8 +14,8 @@
 
 /datum/language/predator
 	name = "Yautja"
-	desc = "&#255;зык &#255;джа &#255;вл&#255;етс&#255; сложным &#255;зыком, широко использующимс&#255; в общении между и с &#255;джа. "
-	speech_verb = "рычит"
+	desc = "The Yautja language is a complex verbal and written language used by the Yautja. "
+	speech_verb = "growls"
 	colour = "soghun"
 	key = "y"
 	flags = WHITELISTED
@@ -23,70 +23,69 @@
 
 /datum/language/unathi
 	name = "Sinta'unathi"
-	desc = "ќсновной &#255;зык ћоззес, состо&#255;щий из свист&#255;щих и шип&#255;щих звуков. ¬ основном, используетс&#255; только народами моззес."
-	speech_verb = "шипит"
+	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
+	speech_verb = "hisses"
 	colour = "soghun"
 	key = "o"
 	flags = WHITELISTED
 
 /datum/language/tajaran
 	name = "Siik'tajr"
-	desc = "ƒостаточно выразительный и сложный &#255;зык, са&#255;к-тажар, &#255;вл&#255;етс&#255; родным дл&#255; та&#255;р&#255;н."
-	speech_verb = "выговаривает"
+	desc = "An expressive language that combines yowls and chirps with posture, tail and ears. Native to the Tajaran."
+	speech_verb = "mrowls"
 	colour = "tajaran"
 	key = "j"
 	flags = WHITELISTED
 
 /datum/language/skrell
 	name = "Skrellian"
-	desc = "ќчень красивый, поющий &#255;зык скреллов твербалаккского происхождени&#255;. Ќекоторые из нот невозможны к прослушиванию многими гуманойдами, в том числе человеком"
-	speech_verb = "дребезжит"
+	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
+	speech_verb = "warbles"
 	colour = "skrell"
 	key = "k"
 	flags = WHITELISTED
 
 /datum/language/vox
 	name = "Vox-pidgin"
-	desc = "ќсновной &#255;зык большинства космических кораблей воксов. —махивает на хаотичный, негласный визг."
-	speech_verb = "вопит"
+	desc = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."
+	speech_verb = "shrieks"
 	colour = "vox"
 	key = "v"
 	flags = RESTRICTED
 
 /datum/language/diona
 	name = "Rootspeak"
-	desc = "—крип&#255;щий и шорочащий &#255;зык, которым владеют дионы с самого рождени&#255; на инстинктном уровне."
-	speech_verb = "скрипит и шорочет"
+	desc = "A creaking, subvocal language spoken instinctively by the Dionaea. Due to the unique makeup of the average Diona, a phrase of Rootspeak can be a combination of anywhere from one to twelve individual voices and notes."
+	speech_verb = "creaks and rustles"
 	colour = "soghun"
 	key = "q"
 	flags = RESTRICTED
 
 /datum/language/hylotl
 	name = "Hylotl"
-	desc = "ћелодичный и простой &#255;зык."
-	speech_verb = "воспевает"
+	desc = "A melodic and complex language."
+	speech_verb = "chants"
 	colour = "soghun"
 	key = "4"
 	flags = RESTRICTED
 
-// Galactic common languages (systemwide accepted standards).
-
 /datum/language/human
 	name = "Sol Common"
-	desc = "»звращенный гибрид английского &#255;зыка и мандаринского диалекта китайского &#255;зыка; общий &#255;зык на галактическом уровне."
+	desc = "A bastardized hybrid of informal English and elements of Mandarin Chinese; the common language of the Sol system."
 	key = "1"
 	flags = RESTRICTED
 
+// Galactic common languages (systemwide accepted standards).
 /datum/language/trader
 	name = "Tradeband"
-	desc = "ƒостаточно элегантный и структуированный &#255;зык, используемый как крупными, так и малыми торговыми картел&#255;ми на галактическом уровне."
-	speech_verb = "формулирует"
+	desc = "Maintained by the various trading cartels in major systems, this elegant, structured language is used for bartering and bargaining."
+	speech_verb = "enunciates"
 	key = "2"
 
 /datum/language/gutter
 	name = "Gutter"
-	desc = "Ётот сырой &#255;зык был специально сконструирован криминальными элементами дл&#255; общени&#255; на межгалактическом уровне достаточно недавно."
-	speech_verb = "рычит"
+	desc = "Much like Standard, this crude pidgin tongue descended from numerous languages and serves as Tradeband for criminal elements."
+	speech_verb = "growls"
 	key = "3"
 
 // Language handling.
@@ -119,7 +118,7 @@
 	set category = "IC"
 	set src = usr
 
-	var/dat = "<b><font size = 5>»звестные &#255;зыки</font></b><br/><br/>"
+	var/dat = "<b><font size = 5>Known Languages</font></b><br/><br/>"
 
 	for(var/datum/language/L in languages)
 		dat += "<b>[L.name] (:[L.key])</b><br/>[L.desc]<br/><br/>"
