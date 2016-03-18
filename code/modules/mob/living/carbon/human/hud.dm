@@ -354,8 +354,8 @@
 	mymob.blind.name = " "
 	mymob.blind.screen_loc = "1,1"
 	mymob.blind.mouse_opacity = 0
-	mymob.blind.layer = -20
-	mymob.blind.alpha = GENERATOR_NE_RABOTAET_KOKOKO
+	mymob.blind.layer = 0
+	//mymob.blind.alpha = GENERATOR_NE_RABOTAET_KOKOKO
 
 	mymob.snow = new /obj/screen()
 	mymob.snow.icon = 'icons/mob/screen1_full.dmi'
@@ -363,7 +363,7 @@
 	mymob.snow.name = " "
 	mymob.snow.screen_loc = "1,1"
 	mymob.snow.mouse_opacity = 0
-	mymob.snow.layer = -20
+	mymob.snow.layer = 20
 	mymob.snow.alpha = GENERATOR_NE_RABOTAET_KOKOKO
 
 	mymob.damageoverlay = new /obj/screen()
