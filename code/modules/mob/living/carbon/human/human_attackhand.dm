@@ -111,9 +111,15 @@
 			var/damage = rand(0, 5)//BS12 EDIT
 			if(!damage)
 				if(M.species.attack_verb == "punch")
-					playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+					//playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+					for(var/mob/MO in range(7, src))
+						if(MO == usr)
+							MO.client.sound_system.PlaySound('sound/weapons/punchmiss.ogg', src, 10)
 				else
-					playsound(loc, 'sound/weapons/slashmiss.ogg', 25, 1, -1)
+					//playsound(loc, 'sound/weapons/slashmiss.ogg', 25, 1, -1)
+					for(var/mob/MO in range(7, src))
+						if(MO == usr)
+							MO.client.sound_system.PlaySound('sound/weapons/punchmiss.ogg', src, 10)
 
 				visible_message("\red <B>[M] has attempted to [M.species.attack_verb] [src]!</B>")
 				return 0

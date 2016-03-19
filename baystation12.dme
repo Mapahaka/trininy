@@ -1325,6 +1325,7 @@
 #include "code\WorkInProgress\Cib\MedicalSideEffects.dm"
 #include "code\WorkInProgress\lie\shadow3d.dm"
 #include "code\WorkInProgress\lie\snow.dm"
+#include "code\WorkInProgress\lie\sound3d.dm"
 #include "code\WorkInProgress\Mini\ATM.dm"
 #include "code\WorkInProgress\Mini\atmos_control.dm"
 #include "code\WorkInProgress\Ported\policetape.dm"
