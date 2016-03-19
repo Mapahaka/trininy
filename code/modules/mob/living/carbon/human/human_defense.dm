@@ -197,25 +197,16 @@ emp_act
 			affecting.sabotaged = 1
 		return
 
-	if(I.attack_verb.len)
-		visible_message("\red <B>[src] has been [pick(I.attack_verb)] in the [hit_area] with [I.name] by [user]!</B>")
-	else
-		visible_message("\red <B>[src] has been attacked in the [hit_area] with [I.name] by [user]!</B>")
-
-	var/armor = run_armor_check(affecting, "melee", "Your armor has protected your [hit_area].", "Your armor has softened hit to your [hit_area].")
-	if(armor >= 2)	return 0
-	if(!I.force)	return 0
-
-	if(a_intent == "harm")
+	if(a_intent == "hurt")
 //		if(user != src)
 		var/chance_chance = rand(0,100)
 		if(chance_chance < 10)
-			visible_message("<span class='danger'>[src] уворачиваетс&#255; от атаки [user]!</span>", \
-							"<span class='userdanger'>[src] уворачиваетс&#255; от атаки [user]!</span>")
+			visible_message("<span class='danger'>[src] dodges [user] attack!</span>", \
+							"<span class='userdanger'>[src] dodges [user] attack!</span>")
 			return()
 		if(chance_chance < 30)
-			visible_message("<span class='danger'>[src] блокирует атаку [user], чем снижает урон!</span>", \
-							"<span class='userdanger'>[src] блокирует атаку [user], чем снижает урон!</span>")
+			visible_message("<span class='danger'>[src] block [user] attack!</span>", \
+							"<span class='userdanger'>[src] block [user] attack!</span>")
 			I.force = I.force - round(I.force/3)
 
 
@@ -237,12 +228,20 @@ emp_act
 			else
 				equip_to_slot_or_del(new I(src), slot_r_hand)
 				*/
-				visible_message("<span class='danger'>[src] отбрасывает оружие [user] прочь!</span>", \
-								"<span class='userdanger'>[src] отбрасывает оружие [user] прочь!</span>")
+				visible_message("<span class='danger'>[src] disarms [user]!</span>", \
+								"<span class='userdanger'>[src] disarms [user]!</span>")
 				playsound(loc, 'sound/weapons/slash.ogg', 25, 1, -1)
 				user.drop_item()
 				//qdel(I)
 
+	if(I.attack_verb.len)
+		visible_message("\red <B>[src] has been [pick(I.attack_verb)] in the [hit_area] with [I.name] by [user]!</B>")
+	else
+		visible_message("\red <B>[src] has been attacked in the [hit_area] with [I.name] by [user]!</B>")
+
+	var/armor = run_armor_check(affecting, "melee", "Your armor has protected your [hit_area].", "Your armor has softened hit to your [hit_area].")
+	if(armor >= 2)	return 0
+	if(!I.force)	return 0
 	apply_damage(I.force, I.damtype, affecting, armor , is_sharp(I), I)
 
 
