@@ -173,6 +173,8 @@ emp_act
 		visible_message("\red <B>[user] misses [src] with \the [I]!")
 		return
 
+	var/backup_force = I.force
+
 	var/datum/organ/external/affecting = get_organ(target_zone)
 	if (!affecting)
 		return
@@ -204,7 +206,46 @@ emp_act
 	if(armor >= 2)	return 0
 	if(!I.force)	return 0
 
+	if(a_intent == "harm")
+//		if(user != src)
+		var/chance_chance = rand(0,100)
+		if(chance_chance < 10)
+			visible_message("<span class='danger'>[src] уворачиваетс&#255; от атаки [user]!</span>", \
+							"<span class='userdanger'>[src] уворачиваетс&#255; от атаки [user]!</span>")
+			return()
+		if(chance_chance < 30)
+			visible_message("<span class='danger'>[src] блокирует атаку [user], чем снижает урон!</span>", \
+							"<span class='userdanger'>[src] блокирует атаку [user], чем снижает урон!</span>")
+			I.force = I.force - round(I.force/3)
+
+
+	if(a_intent == "grab")
+//		if(user != src)
+		var/chance_chance = rand(0,100)
+		if(chance_chance < 15)
+			if(I.w_class > 2)
+			/*
+			var/obj/item/O
+			if(O == l_hand)
+				if(O != r_hand)
+					equip_to_slot_or_del(new I(src), slot_r_hand)
+			else
+				equip_to_slot_or_del(new I(src), slot_l_hand)
+			if(O == r_hand)
+				if(O != l_hand)
+					equip_to_slot_or_del(new I(src), slot_l_hand)
+			else
+				equip_to_slot_or_del(new I(src), slot_r_hand)
+				*/
+				visible_message("<span class='danger'>[src] отбрасывает оружие [user] прочь!</span>", \
+								"<span class='userdanger'>[src] отбрасывает оружие [user] прочь!</span>")
+				playsound(loc, 'sound/weapons/slash.ogg', 25, 1, -1)
+				user.drop_item()
+				//qdel(I)
+
 	apply_damage(I.force, I.damtype, affecting, armor , is_sharp(I), I)
+
+
 
 	var/bloody = 0
 	if(((I.damtype == BRUTE) || (I.damtype == HALLOSS)) && prob(25 + (I.force * 2)))
@@ -248,6 +289,8 @@ emp_act
 
 				if(bloody)
 					bloody_body(src)
+
+	I.force = backup_force
 
 /mob/living/carbon/human/proc/bloody_hands(var/mob/living/source, var/amount = 2)
 	if (gloves)
