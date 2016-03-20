@@ -817,27 +817,21 @@ commented out in r5061, I left it because of the shroom thingies
 				M.x = world.maxx - TRANSITIONEDGE - 2
 				switch(M.z)
 					if(1) M.z = 3
-					if(2) M.z = 1
+					if(2) M.z = 5
 					if(3) M.z = 2
 					if(4) M.z = 6
 					if(5) M.z = 4
-					if(6) M.z = 5
-					if(7) M.z = 9
-					if(8) M.z = 7
-					if(9) M.z = 8
+					if(6) M.z = 2
 
 			else if (M.x >= (world.maxx - TRANSITIONEDGE - 1))
 				M.x = TRANSITIONEDGE + 1
 				switch(M.z)
 					if(1) M.z = 2
-					if(2) M.z = 3
+					if(2) M.z = 6
 					if(3) M.z = 1
 					if(4) M.z = 5
-					if(5) M.z = 6
+					if(5) M.z = 2
 					if(6) M.z = 4
-					if(7) M.z = 8
-					if(8) M.z = 9
-					if(9) M.z = 7
 
 			else if (src.y <= TRANSITIONEDGE)
 				M.y = world.maxy - TRANSITIONEDGE -2
@@ -848,9 +842,6 @@ commented out in r5061, I left it because of the shroom thingies
 					if(4) M.z = 7
 					if(5) M.z = 8
 					if(6) M.z = 9
-					if(7) M.z = 1
-					if(8) M.z = 2
-					if(9) M.z = 3
 
 			else if (M.y >= (world.maxy - TRANSITIONEDGE - 1))
 				M.y = TRANSITIONEDGE + 1
@@ -861,9 +852,6 @@ commented out in r5061, I left it because of the shroom thingies
 					if(4) M.z = 1
 					if(5) M.z = 2
 					if(6) M.z = 3
-					if(7) M.z = 4
-					if(8) M.z = 5
-					if(9) M.z = 6
 
 			spawn (0)
 				if ((M && M.loc))
