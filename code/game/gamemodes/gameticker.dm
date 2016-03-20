@@ -72,7 +72,7 @@ var/global/datum/controller/gameticker/ticker
 		runnable_modes = config.get_runnable_modes()
 		if (runnable_modes.len==0)
 			current_state = GAME_STATE_PREGAME
-			world << "<B>Невозможно выбрать игровой режим.</B>"
+			world << "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby."
 			return 0
 		if(secret_force_mode != "secret")
 			var/datum/game_mode/M = config.pick_mode(secret_force_mode)
@@ -87,7 +87,7 @@ var/global/datum/controller/gameticker/ticker
 	else
 		src.mode = config.pick_mode(master_mode)
 	if (!src.mode.can_start())
-		world << "<B>Невозможно начать [mode.name].</B> Недостаточно человек, необходимо еще [mode.required_players]."
+		world << "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby."
 		del(mode)
 		current_state = GAME_STATE_PREGAME
 		job_master.ResetOccupations()
@@ -99,7 +99,7 @@ var/global/datum/controller/gameticker/ticker
 	if(!can_continue)
 		del(mode)
 		current_state = GAME_STATE_PREGAME
-		world << "<B>Невозможно начать [master_mode].</B>"
+		world << "<B>Error setting up [master_mode].</B> Reverting to pre-game lobby."
 		job_master.ResetOccupations()
 		return 0
 
@@ -108,8 +108,8 @@ var/global/datum/controller/gameticker/ticker
 		for (var/datum/game_mode/M in runnable_modes)
 			modes+=M.name
 		modes = sortList(modes)
-		world << "<B>Текущий режим - Cекрет!</B>"
-		world << "<B>Возможные:</B> [english_list(modes)]"
+		world << "<B>The current game mode is - Secret!</B>"
+		world << "<B>Possibilities:</B> [english_list(modes)]"
 	else
 		src.mode.announce()
 
@@ -136,7 +136,7 @@ var/global/datum/controller/gameticker/ticker
 			//Deleting Startpoints but we need the ai point to AI-ize people later
 			if (S.name != "AI")
 				del(S)
-		world << "<FONT color='blue'> <B>При&#255;тной игры!</B></FONT>"
+		world << "<FONT color='blue'><B>Enjoy the game!</B></FONT>"
 		world << sound('sound/AI/welcome.ogg') // Skie
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()

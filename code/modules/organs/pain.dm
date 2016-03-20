@@ -26,23 +26,23 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 	if(burning)
 		switch(amount)
 			if(1 to 10)
-				msg = "\red <b>Мо&#255; [partname] жжетс&#255;.</b>"
+				msg = "\red <b>Your [partname] burns.</b>"
 			if(11 to 90)
 				flash_weak_pain()
-				msg = "\red <b><font size=2>Мо&#255; [partname] очень сильно жжетс&#255;!</font></b>"
+				msg = "\red <b><font size=2>Your [partname] burns badly!</font></b>"
 			if(91 to 10000)
 				flash_pain()
-				msg = "\red <b><font size=3>БОЖЕ! Мо&#255; [partname] ГОРИТ!</font></b>"
+				msg = "\red <b><font size=3>OH GOD! Your [partname] is on fire!</font></b>"
 	else
 		switch(amount)
 			if(1 to 10)
-				msg = "<b>Мо&#255; [partname] болит.</b>"
+				msg = "<b>Your [partname] hurts.</b>"
 			if(11 to 90)
 				flash_weak_pain()
-				msg = "<b><font size=2>Мо&#255; [partname] очень сильно болит.</font></b>"
+				msg = "<b><font size=2>Your [partname] hurts badly.</font></b>"
 			if(91 to 10000)
 				flash_pain()
-				msg = "<b><font size=3>БОЖЕ! Мо&#255; [partname] УЖАСНО БОЛИТ!</font></b>"
+				msg = "<b><font size=3>OH GOD! Your [partname] is hurting terribly!</font></b>"
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		src << msg

@@ -1346,5 +1346,5 @@
 #include "code\ZAS\ZAS_Zones.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\pol_t_d.dmm"
+#include "maps\Polar_res.dmm"
 // END_INCLUDE
