@@ -1323,6 +1323,7 @@
 #include "code\WorkInProgress\Cael_Aislinn\Supermatter\ZeroPointLaser.dm"
 #include "code\WorkInProgress\Chinsky\ashtray.dm"
 #include "code\WorkInProgress\Cib\MedicalSideEffects.dm"
+#include "code\WorkInProgress\lie\check_weight.dm"
 #include "code\WorkInProgress\lie\shadow3d.dm"
 #include "code\WorkInProgress\lie\snow.dm"
 #include "code\WorkInProgress\lie\sound3d.dm"

@@ -280,6 +280,10 @@
 					src << "\blue You're restrained! You can't move!"
 					return 0
 
+		if(mob.is_overweight == 1)
+			src << "\blue You're overloaded! You can't move!"
+			return 0
+
 		if(mob.pinned.len)
 			src << "\blue You're pinned to a wall by [mob.pinned[1]]!"
 			return 0

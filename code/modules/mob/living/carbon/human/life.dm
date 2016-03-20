@@ -111,9 +111,11 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	//check_FOV()
+	//DERVEN INSDUSIAN CODE
 	check_my_shadow()
 	check_my_snow()
+	check_weight()
+	//DERVEN INSDUSIAN CODE
 
 	handle_regular_hud_updates()
 

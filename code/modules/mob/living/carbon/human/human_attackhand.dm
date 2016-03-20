@@ -114,12 +114,12 @@
 					//playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 					for(var/mob/MO in range(7, src))
 						if(MO == usr)
-							MO.client.sound_system.PlaySound('sound/weapons/punchmiss.ogg', src, 10)
+							MO.client.sound_system.PlaySound('sound/weapons/punchmiss.ogg', src, 6)
 				else
 					//playsound(loc, 'sound/weapons/slashmiss.ogg', 25, 1, -1)
 					for(var/mob/MO in range(7, src))
 						if(MO == usr)
-							MO.client.sound_system.PlaySound('sound/weapons/punchmiss.ogg', src, 10)
+							MO.client.sound_system.PlaySound('sound/weapons/punchmiss.ogg', src, 6)
 
 				visible_message("\red <B>[M] has attempted to [M.species.attack_verb] [src]!</B>")
 				return 0
