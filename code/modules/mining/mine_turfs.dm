@@ -7,7 +7,7 @@
 /turf/simulated/mineral //wall piece
 	name = "Rock"
 	icon = 'icons/turf/polar.dmi'
-	icon_state = "poor2"
+	icon_state = "rich4"
 	oxygen = 0
 	nitrogen = 0
 	opacity = 1
@@ -47,6 +47,12 @@
 	return
 
 /turf/simulated/mineral/New()
+	var/proper_name = name
+	..()
+	name = proper_name
+	if(prob(20))
+		icon_state = "rich[rand(1,6)]"
+
 /*
 	spawn(1)
 		var/turf/T
@@ -863,6 +869,12 @@ commented out in r5061, I left it because of the shroom thingies
 	name = "cave floor"
 	temperature = T0C+25
 	dug = 1
+/turf/simulated/floor/plating/airless/asteroid/cave/New()
+	var/proper_name = name
+	..()
+	name = proper_name
+	if(prob(20))
+		icon_state = "wground[rand(1,3)]"
 
 
 
