@@ -1324,6 +1324,7 @@
 #include "code\WorkInProgress\Chinsky\ashtray.dm"
 #include "code\WorkInProgress\Cib\MedicalSideEffects.dm"
 #include "code\WorkInProgress\lie\check_weight.dm"
+#include "code\WorkInProgress\lie\roof.dm"
 #include "code\WorkInProgress\lie\shadow3d.dm"
 #include "code\WorkInProgress\lie\snow.dm"
 #include "code\WorkInProgress\lie\sound3d.dm"
@@ -1346,5 +1347,5 @@
 #include "code\ZAS\ZAS_Zones.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\Polar_res.dmm"
+#include "maps\pol_t_d.dmm"
 // END_INCLUDE

@@ -1771,7 +1771,7 @@
 					return
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","ShM")
-				move_mine_elevator()
+				move_mine_elevator_1()
 				message_admins("\blue [key_name_admin(usr)] moved mining shuttle", 1)
 				log_admin("[key_name(usr)] moved the mining shuttle")
 			if("moveadminshuttle")

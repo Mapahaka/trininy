@@ -43,19 +43,27 @@
 var/mine_elevator_tickstomove = 10
 var/mine_elevator_moving = 0
 var/mine_elevator_location = 0
+var/choice = 0
 
-proc/move_mine_elevator()
+/area/shuttle/mining/outpost/outpost2
+
+proc/move_mine_elevator_1()
 	if(mine_elevator_moving)	return
 	mine_elevator_moving = 1
-	spawn(mine_elevator_tickstomove*10)
+	spawn(mine_elevator_tickstomove*5)
 		var/area/fromArea
 		var/area/toArea
+
+		var/area/toArea1 = locate(/area/shuttle/mining/station)
+
 		if (mine_elevator_location == 1)
 			fromArea = locate(/area/shuttle/mining/outpost)
-			toArea = locate(/area/shuttle/mining/station)
+			toArea = toArea1
 		else
-			fromArea = locate(/area/shuttle/mining/station)
+			fromArea = toArea1
 			toArea = locate(/area/shuttle/mining/outpost)
+
+
 
 		var/list/dstturfs = list()
 		var/throwy = world.maxy
@@ -95,7 +103,68 @@ proc/move_mine_elevator()
 			mine_elevator_location = 1
 
 		mine_elevator_moving = 0
+
+		if(choice == 1)
+			move_mine_elevator_2()
 	return
+
+proc/move_mine_elevator_2()
+	if(mine_elevator_moving)	return
+	mine_elevator_moving = 1
+	spawn(mine_elevator_tickstomove*5)
+		var/area/froomArea
+		var/area/tooArea
+
+		var/area/toArea1 = locate(/area/shuttle/mining/station)
+		var/area/toArea2 = locate(/area/shuttle/mining/outpost2)
+
+		if (mine_elevator_location == 1)
+			froomArea = toArea1
+			tooArea = toArea2
+		else
+			froomArea = toArea2
+			tooArea = toArea1
+
+		var/list/dstturfs = list()
+		var/throwy = world.maxy
+
+		for(var/turf/T in tooArea)
+			dstturfs += T
+			if(T.y < throwy)
+				throwy = T.y
+
+		// hey you, get out of the way!
+		for(var/turf/T in dstturfs)
+			// find the turf to move things to
+			var/turf/D = locate(T.x, throwy - 1, 1)
+			//var/turf/E = get_step(D, SOUTH)
+			for(var/atom/movable/AM as mob|obj in T)
+				AM.Move(D)
+				// NOTE: Commenting this out to avoid recreating mass driver glitch
+				/*
+				spawn(0)
+					AM.throw
+				*/
+
+			if(istype(T, /turf/simulated))
+				del(T)
+
+		for(var/mob/living/carbon/bug in tooArea) // If someone somehow is still in the shuttle's docking area...
+			bug.gib()
+
+		for(var/mob/living/simple_animal/pest in tooArea) // And for the other kind of bug...
+			pest.gib()
+
+		froomArea.move_contents_to(tooArea)
+
+		world << "wait..."
+//		if (mine_elevator_location)
+//			mine_elevator_location = 0
+//		else
+		//	mine_elevator_location = 1
+
+		mine_elevator_moving = 0
+//	return
 
 /obj/machinery/computer/mine_elevator
 	name = "Mining Elevator Console"
@@ -109,7 +178,8 @@ proc/move_mine_elevator()
 
 /obj/machinery/computer/mine_elevator/attack_hand(user as mob)
 	src.add_fingerprint(usr)
-	var/dat = "<center>Mining elevator: <b><A href='?src=\ref[src];move=1'>Send</A></b></center><br>"
+	var/dat = "<center>Mining elevator: <b><A href='?src=\ref[src];move=1'>Send to SECOND LEVEL</A></b></center><br>"
+	dat += "<center><b><A href='?src=\ref[src];move=2'>Send to THIRD LEVEL</A></b></center><br>"
 
 	user << browse("[dat]", "window=elevator;size=200x100")
 
@@ -118,15 +188,29 @@ proc/move_mine_elevator()
 		return
 	usr.machine = src
 	src.add_fingerprint(usr)
-	if(href_list["move"])
+	if(text2num(href_list["move"]) == 1)
 		//if(ticker.mode.name == "blob")
 		//	if(ticker.mode:declared)
 		//		usr << "Under directive 7-10, [station_name()] is quarantined until further notice."
 		//		return
+		choice = 0
 
 		if (!mine_elevator_moving)
 			usr << "\blue Elevator recieved message and will be sent shortly."
-			move_mine_elevator()
+			move_mine_elevator_1()
+		else
+			usr << "\blue Elevator is already moving."
+
+	if(text2num(href_list["move"]) == 2)
+		//if(ticker.mode.name == "blob")
+		//	if(ticker.mode:declared)
+		//		usr << "Under directive 7-10, [station_name()] is quarantined until further notice."
+		//		return
+		choice = 1
+
+		if (!mine_elevator_moving)
+			usr << "\blue Elevator recieved message and will be sent shortly."
+			move_mine_elevator_1()
 		else
 			usr << "\blue Elevator is already moving."
 

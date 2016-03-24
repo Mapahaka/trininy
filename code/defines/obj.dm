@@ -16,6 +16,9 @@
 			if("No")
 				return
 
+/obj/structure/elevator
+	icon = 'icons/obj/faketurfs.dmi'
+
 /obj/effect/mark
 		var/mark = ""
 		icon = 'icons/misc/mark.dmi'
