@@ -14,7 +14,8 @@ var/to_loc = 1 // 0 = station 13, 1 = mining station, 2 = new_level, 3 = 4etvert
 proc/move_elevator_1()
 	if(elevator_1_moving)	return
 	elevator_1_moving = 1
-	spawn(elevator_1_tickstomove*10)
+//	spawn(elevator_1_tickstomove*10)
+	spawn(10)
 		var/area/fromArea
 		var/area/toArea
 		var/area/BufferArea = locate(/area/shuttle/mining)
