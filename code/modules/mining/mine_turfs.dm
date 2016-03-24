@@ -7,7 +7,7 @@
 /turf/simulated/mineral //wall piece
 	name = "Rock"
 	icon = 'icons/turf/polar.dmi'
-	icon_state = "poor2"
+	icon_state = "rich4"
 	oxygen = 0
 	nitrogen = 0
 	opacity = 1
@@ -47,6 +47,12 @@
 	return
 
 /turf/simulated/mineral/New()
+	var/proper_name = name
+	..()
+	name = proper_name
+	if(prob(20))
+		icon_state = "rich[rand(1,6)]"
+
 /*
 	spawn(1)
 		var/turf/T
@@ -817,27 +823,21 @@ commented out in r5061, I left it because of the shroom thingies
 				M.x = world.maxx - TRANSITIONEDGE - 2
 				switch(M.z)
 					if(1) M.z = 3
-					if(2) M.z = 1
+					if(2) M.z = 5
 					if(3) M.z = 2
 					if(4) M.z = 6
 					if(5) M.z = 4
-					if(6) M.z = 5
-					if(7) M.z = 9
-					if(8) M.z = 7
-					if(9) M.z = 8
+					if(6) M.z = 2
 
 			else if (M.x >= (world.maxx - TRANSITIONEDGE - 1))
 				M.x = TRANSITIONEDGE + 1
 				switch(M.z)
 					if(1) M.z = 2
-					if(2) M.z = 3
+					if(2) M.z = 6
 					if(3) M.z = 1
 					if(4) M.z = 5
-					if(5) M.z = 6
+					if(5) M.z = 2
 					if(6) M.z = 4
-					if(7) M.z = 8
-					if(8) M.z = 9
-					if(9) M.z = 7
 
 			else if (src.y <= TRANSITIONEDGE)
 				M.y = world.maxy - TRANSITIONEDGE -2
@@ -848,9 +848,6 @@ commented out in r5061, I left it because of the shroom thingies
 					if(4) M.z = 7
 					if(5) M.z = 8
 					if(6) M.z = 9
-					if(7) M.z = 1
-					if(8) M.z = 2
-					if(9) M.z = 3
 
 			else if (M.y >= (world.maxy - TRANSITIONEDGE - 1))
 				M.y = TRANSITIONEDGE + 1
@@ -861,9 +858,6 @@ commented out in r5061, I left it because of the shroom thingies
 					if(4) M.z = 1
 					if(5) M.z = 2
 					if(6) M.z = 3
-					if(7) M.z = 4
-					if(8) M.z = 5
-					if(9) M.z = 6
 
 			spawn (0)
 				if ((M && M.loc))
@@ -875,6 +869,12 @@ commented out in r5061, I left it because of the shroom thingies
 	name = "cave floor"
 	temperature = T0C+25
 	dug = 1
+/turf/simulated/floor/plating/airless/asteroid/cave/New()
+	var/proper_name = name
+	..()
+	name = proper_name
+	if(prob(20))
+		icon_state = "wground[rand(1,3)]"
 
 
 
