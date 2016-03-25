@@ -1324,6 +1324,7 @@
 #include "code\WorkInProgress\Chinsky\ashtray.dm"
 #include "code\WorkInProgress\Cib\MedicalSideEffects.dm"
 #include "code\WorkInProgress\lie\check_weight.dm"
+#include "code\WorkInProgress\lie\elevator_2_0.dm"
 #include "code\WorkInProgress\lie\roof.dm"
 #include "code\WorkInProgress\lie\shadow3d.dm"
 #include "code\WorkInProgress\lie\snow.dm"
