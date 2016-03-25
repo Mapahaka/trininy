@@ -355,7 +355,51 @@
 		charge = INFINITY
 		..()
 
+/obj/machinery/power/smes/metalevel_1
+	name = "test power storage unit"
+	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit. Magically produces power."
+	process()
+		capacity = 5e6
+		charge = 1e6
+		..()
 
+/obj/machinery/power/smes/metalevel_1/New()
+	..()
+	spawn(5)
+		dir_loop:
+			for(var/d in cardinal)
+				var/turf/T = get_step(src, d)
+				for(var/obj/machinery/power/terminal/term in T)
+					if(term && term.dir == turn(d, 180))
+						terminal = term
+						break dir_loop
+		if(!terminal)
+			stat |= BROKEN
+			return
+		terminal.master = src
+		updateicon()
+		power_upd()
+	return
+
+/obj/machinery/power/smes/metalevel_n
+	name = "test power storage unit"
+	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit. Magically produces power."
+	process()
+		for(var/obj/machinery/power/smes/metalevel_1/S in world)
+			capacity = S.capacity
+			charge = S.charge
+			..()
+/obj/machinery/power/smes/metalevel_1/proc/power_upd()
+	for(var/obj/machinery/power/smes/metalevel_1/M in world)
+		for(var/obj/machinery/power/smes/metalevel_n/N in world)
+			N.capacity = M.capacity
+			N.charge = M.charge
+			N.charging = M.charging
+			N.chargecount = M.charging
+			N.chargelevel = M.charging
+			N.chargemode = M.charging
+			sleep(10)
+			power_upd()
 
 /proc/rate_control(var/S, var/V, var/C, var/Min=1, var/Max=5, var/Limit=null)
 	var/href = "<A href='?src=\ref[S];rate control=1;[V]"
