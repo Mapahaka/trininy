@@ -22,22 +22,22 @@ var/global/list/elevator_commanders = list()
 	src.add_fingerprint(usr)
 
 	if(text2num(href_list["move"]) == 0)
-		where = 0
-		usr << "\blue Elevator recieved message and will be sent shortly."
-		move_elevator_(usr)
-
-	if(text2num(href_list["move"]) == 1)
 		where = 1
 		usr << "\blue Elevator recieved message and will be sent shortly."
 		move_elevator_(usr)
 
-	if(text2num(href_list["move"]) == 2)
+	if(text2num(href_list["move"]) == 1)
 		where = 2
 		usr << "\blue Elevator recieved message and will be sent shortly."
 		move_elevator_(usr)
 
-	if(text2num(href_list["move"]) == 3)
+	if(text2num(href_list["move"]) == 2)
 		where = 3
+		usr << "\blue Elevator recieved message and will be sent shortly."
+		move_elevator_(usr)
+
+	if(text2num(href_list["move"]) == 3)
+		where = 4
 		usr << "\blue Elevator recieved message and will be sent shortly."
 		move_elevator_(usr)
 
