@@ -78,22 +78,22 @@ var/global/list/elevator_commanders = list()
 
 	for(var/obj/machinery/computer/elevator_control/ELCON in elevator_commanders)
 		if(text2num(href_list["move"]) == 0)
-			ELCON.where = 0
-			usr << "\blue Elevator recieved message and will be sent shortly."
-			ELCON.move_elevator_(usr)
-
-		if(text2num(href_list["move"]) == 1)
 			ELCON.where = 1
 			usr << "\blue Elevator recieved message and will be sent shortly."
 			ELCON.move_elevator_(usr)
 
-		if(text2num(href_list["move"]) == 2)
+		if(text2num(href_list["move"]) == 1)
 			ELCON.where = 2
 			usr << "\blue Elevator recieved message and will be sent shortly."
 			ELCON.move_elevator_(usr)
 
-		if(text2num(href_list["move"]) == 3)
+		if(text2num(href_list["move"]) == 2)
 			ELCON.where = 3
+			usr << "\blue Elevator recieved message and will be sent shortly."
+			ELCON.move_elevator_(usr)
+
+		if(text2num(href_list["move"]) == 3)
+			ELCON.where = 4
 			usr << "\blue Elevator recieved message and will be sent shortly."
 			ELCON.move_elevator_(usr)
 
