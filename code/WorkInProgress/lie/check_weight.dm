@@ -15,7 +15,7 @@
 			weight_sum += ST.check_my_weight()
 
 
-	if(weight_sum > 70)
+	if(weight_sum > 45)
 		is_overweight = 1
 	else
 		is_overweight = 0

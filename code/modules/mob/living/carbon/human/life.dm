@@ -115,6 +115,14 @@
 	check_my_shadow()
 	check_my_snow()
 	check_weight()
+
+	if(stamina < 100)
+		if(m_intent == "walk")
+			stamina += 1
+
+	if(stamina > 100)
+		stamina = 100
+
 	//DERVEN INSDUSIAN CODE
 
 	handle_regular_hud_updates()

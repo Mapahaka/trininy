@@ -295,8 +295,26 @@
 				if(mob.drowsyness > 0)
 					move_delay += 6
 				move_delay += 1+config.run_speed
+
+				if(iscarbon(usr))
+					if(mob.stamina > 0)
+						mob.stamina -= 1
+
+					if(mob.stamina < 30)
+						move_delay += 7+config.run_speed
+						src << "\red You find it hard to move on!"
+
 			if("walk")
-				move_delay += 7+config.walk_speed
+				move_delay += 2+config.walk_speed
+
+				if(iscarbon(usr))
+					if(mob.stamina < 100)
+						mob.stamina += 1
+
+					if(mob.stamina < 10)
+						move_delay += 7+config.run_speed
+						src << "\red You find it hard to move on!"
+
 		move_delay += mob.movement_delay()
 
 		if(config.Tickcomp)

@@ -66,7 +66,6 @@
 		dna.real_name = real_name
 
 	prev_gender = gender // Debug for plural genders
-	r00f()
 	make_organs()
 	make_blood()
 
