@@ -5,7 +5,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
 //	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
-	/datum/admins/proc/LoadWhitelist,
+	///datum/admins/proc/LoadWhitelist,
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
 	/client/proc/check_antagonists,		/*shows all antags*/
 //	/client/proc/mod_panel,

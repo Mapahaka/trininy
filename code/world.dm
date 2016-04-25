@@ -35,7 +35,7 @@
 	jobban_loadbanfile()
 	jobban_updatelegacybans()
 	LoadBans()
-	load_ywhitelist()
+//	load_ywhitelist()
 	if(config && config.server_name != null && config.server_suffix && world.port > 0)
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"

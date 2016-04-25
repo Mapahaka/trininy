@@ -22,6 +22,8 @@
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
+		H.agility = 2
+		H.strength = 2
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/ce(H), slot_ears)
 		switch(H.backbag)
 			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/industrial(H), slot_back)
@@ -39,6 +41,7 @@
 		else
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(H.back), slot_in_backpack)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/wallet/random(H.back), slot_in_backpack)
+
 		return 1
 
 
@@ -59,6 +62,8 @@
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
+		H.agility = 2
+		H.strength = 2
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_eng(H), slot_ears)
 		switch(H.backbag)
 			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/industrial(H), slot_back)
@@ -95,6 +100,8 @@
 
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
+		H.agility = 2
+		H.strength = 2
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_eng(H), slot_ears)
 		switch(H.backbag)
 			if(2) H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(H), slot_back)

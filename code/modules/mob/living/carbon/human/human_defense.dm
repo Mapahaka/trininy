@@ -200,11 +200,11 @@ emp_act
 	if(a_intent == "hurt")
 //		if(user != src)
 		var/chance_chance = rand(0,100)
-		if(chance_chance < 10)
+		if(chance_chance < 10 + agility)
 			visible_message("<span class='danger'>[src] dodges [user] attack!</span>", \
 							"<span class='userdanger'>[src] dodges [user] attack!</span>")
 			return()
-		if(chance_chance < 30)
+		if(chance_chance < 30 + agility + strength)
 			visible_message("<span class='danger'>[src] block [user] attack!</span>", \
 							"<span class='userdanger'>[src] block [user] attack!</span>")
 			I.force = I.force - round(I.force/3)

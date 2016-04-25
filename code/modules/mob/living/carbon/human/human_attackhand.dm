@@ -138,6 +138,7 @@
 
 			visible_message("\red <B>[M] has [M.species.attack_verb]ed [src]!</B>")
 			//Rearranged, so claws don't increase weaken chance.
+			damage = damage + strength
 			if(damage >= 5 && prob(50))
 				visible_message("\red <B>[M] has weakened [src]!</B>")
 				apply_effect(2, WEAKEN, armor_block)
